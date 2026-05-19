@@ -1,7 +1,7 @@
 # Moral Personas IPD
 
 Raw trajectories (`results/`) and aggregated metrics
-(`csvs/`) are released separately on Hugging Face Datasets.
+(`csvs/`) are released separately on [Hugging Face Datasets](https://huggingface.co/datasets/s-haider/moral-personas-ipd).
 
 ## Layout
 
