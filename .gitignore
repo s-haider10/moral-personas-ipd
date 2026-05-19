@@ -1,0 +1,35 @@
+# Data — released separately on HF Datasets
+results/
+csvs/
+
+# Local scratch
+old_fig/
+/killswitch_*.jsonl
+/*.jsonl
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.python-version
+*.egg-info/
+build/
+dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# Notebooks
+.ipynb_checkpoints/
