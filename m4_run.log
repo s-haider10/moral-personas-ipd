@@ -1,0 +1,411 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+wrote 500 train / 200 test / 60 anchor prompts
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<02:25,  2.00it/s]Loading weights:   7%|▋         | 19/291 [00:00<00:06, 40.56it/s]Loading weights:  11%|█         | 31/291 [00:00<00:04, 57.18it/s]Loading weights:  14%|█▍        | 41/291 [00:00<00:03, 66.27it/s]Loading weights:  18%|█▊        | 51/291 [00:00<00:03, 73.99it/s]Loading weights:  22%|██▏       | 64/291 [00:01<00:02, 86.05it/s]Loading weights:  26%|██▌       | 76/291 [00:01<00:02, 91.88it/s]Loading weights:  30%|██▉       | 87/291 [00:01<00:02, 90.54it/s]Loading weights:  35%|███▌      | 103/291 [00:01<00:01, 98.23it/s]Loading weights:  39%|███▉      | 114/291 [00:01<00:01, 95.40it/s]Loading weights:  45%|████▍     | 130/291 [00:01<00:01, 93.58it/s]Loading weights:  50%|█████     | 146/291 [00:01<00:01, 108.82it/s]Loading weights:  54%|█████▍    | 158/291 [00:01<00:01, 100.68it/s]Loading weights:  58%|█████▊    | 169/291 [00:02<00:01, 100.36it/s]Loading weights:  63%|██████▎   | 184/291 [00:02<00:01, 99.65it/s] Loading weights:  67%|██████▋   | 195/291 [00:02<00:00, 100.84it/s]Loading weights:  73%|███████▎  | 211/291 [00:02<00:00, 105.62it/s]Loading weights:  76%|███████▋  | 222/291 [00:02<00:00, 100.79it/s]Loading weights:  82%|████████▏ | 238/291 [00:02<00:00, 101.18it/s]Loading weights:  86%|████████▌ | 249/291 [00:02<00:00, 102.08it/s]Loading weights:  91%|█████████ | 265/291 [00:03<00:00, 106.05it/s]Loading weights:  95%|█████████▍| 276/291 [00:03<00:00, 100.29it/s]Loading weights: 100%|██████████| 291/291 [00:03<00:00, 90.08it/s] 
+/home/haider/moral-personas-ipd/new/m4_direction_generalization.py:677: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  train_b = torch.load(m4_dir / "activations_train.pt")
+/home/haider/moral-personas-ipd/new/m4_direction_generalization.py:678: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  test_b = torch.load(m4_dir / "activations_test.pt")
+/home/haider/moral-personas-ipd/new/m4_direction_generalization.py:679: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  anchor_b = torch.load(m4_dir / "activations_anchor.pt")
+  cached 2/500
+  cached 4/500
+  cached 6/500
+  cached 8/500
+  cached 10/500
+  cached 12/500
+  cached 14/500
+  cached 16/500
+  cached 18/500
+  cached 20/500
+  cached 22/500
+  cached 24/500
+  cached 26/500
+  cached 28/500
+  cached 30/500
+  cached 32/500
+  cached 34/500
+  cached 36/500
+  cached 38/500
+  cached 40/500
+  cached 42/500
+  cached 44/500
+  cached 46/500
+  cached 48/500
+  cached 50/500
+  cached 52/500
+  cached 54/500
+  cached 56/500
+  cached 58/500
+  cached 60/500
+  cached 62/500
+  cached 64/500
+  cached 66/500
+  cached 68/500
+  cached 70/500
+  cached 72/500
+  cached 74/500
+  cached 76/500
+  cached 78/500
+  cached 80/500
+  cached 82/500
+  cached 84/500
+  cached 86/500
+  cached 88/500
+  cached 90/500
+  cached 92/500
+  cached 94/500
+  cached 96/500
+  cached 98/500
+  cached 100/500
+  cached 102/500
+  cached 104/500
+  cached 106/500
+  cached 108/500
+  cached 110/500
+  cached 112/500
+  cached 114/500
+  cached 116/500
+  cached 118/500
+  cached 120/500
+  cached 122/500
+  cached 124/500
+  cached 126/500
+  cached 128/500
+  cached 130/500
+  cached 132/500
+  cached 134/500
+  cached 136/500
+  cached 138/500
+  cached 140/500
+  cached 142/500
+  cached 144/500
+  cached 146/500
+  cached 148/500
+  cached 150/500
+  cached 152/500
+  cached 154/500
+  cached 156/500
+  cached 158/500
+  cached 160/500
+  cached 162/500
+  cached 164/500
+  cached 166/500
+  cached 168/500
+  cached 170/500
+  cached 172/500
+  cached 174/500
+  cached 176/500
+  cached 178/500
+  cached 180/500
+  cached 182/500
+  cached 184/500
+  cached 186/500
+  cached 188/500
+  cached 190/500
+  cached 192/500
+  cached 194/500
+  cached 196/500
+  cached 198/500
+  cached 200/500
+  cached 202/500
+  cached 204/500
+  cached 206/500
+  cached 208/500
+  cached 210/500
+  cached 212/500
+  cached 214/500
+  cached 216/500
+  cached 218/500
+  cached 220/500
+  cached 222/500
+  cached 224/500
+  cached 226/500
+  cached 228/500
+  cached 230/500
+  cached 232/500
+  cached 234/500
+  cached 236/500
+  cached 238/500
+  cached 240/500
+  cached 242/500
+  cached 244/500
+  cached 246/500
+  cached 248/500
+  cached 250/500
+  cached 252/500
+  cached 254/500
+  cached 256/500
+  cached 258/500
+  cached 260/500
+  cached 262/500
+  cached 264/500
+  cached 266/500
+  cached 268/500
+  cached 270/500
+  cached 272/500
+  cached 274/500
+  cached 276/500
+  cached 278/500
+  cached 280/500
+  cached 282/500
+  cached 284/500
+  cached 286/500
+  cached 288/500
+  cached 290/500
+  cached 292/500
+  cached 294/500
+  cached 296/500
+  cached 298/500
+  cached 300/500
+  cached 302/500
+  cached 304/500
+  cached 306/500
+  cached 308/500
+  cached 310/500
+  cached 312/500
+  cached 314/500
+  cached 316/500
+  cached 318/500
+  cached 320/500
+  cached 322/500
+  cached 324/500
+  cached 326/500
+  cached 328/500
+  cached 330/500
+  cached 332/500
+  cached 334/500
+  cached 336/500
+  cached 338/500
+  cached 340/500
+  cached 342/500
+  cached 344/500
+  cached 346/500
+  cached 348/500
+  cached 350/500
+  cached 352/500
+  cached 354/500
+  cached 356/500
+  cached 358/500
+  cached 360/500
+  cached 362/500
+  cached 364/500
+  cached 366/500
+  cached 368/500
+  cached 370/500
+  cached 372/500
+  cached 374/500
+  cached 376/500
+  cached 378/500
+  cached 380/500
+  cached 382/500
+  cached 384/500
+  cached 386/500
+  cached 388/500
+  cached 390/500
+  cached 392/500
+  cached 394/500
+  cached 396/500
+  cached 398/500
+  cached 400/500
+  cached 402/500
+  cached 404/500
+  cached 406/500
+  cached 408/500
+  cached 410/500
+  cached 412/500
+  cached 414/500
+  cached 416/500
+  cached 418/500
+  cached 420/500
+  cached 422/500
+  cached 424/500
+  cached 426/500
+  cached 428/500
+  cached 430/500
+  cached 432/500
+  cached 434/500
+  cached 436/500
+  cached 438/500
+  cached 440/500
+  cached 442/500
+  cached 444/500
+  cached 446/500
+  cached 448/500
+  cached 450/500
+  cached 452/500
+  cached 454/500
+  cached 456/500
+  cached 458/500
+  cached 460/500
+  cached 462/500
+  cached 464/500
+  cached 466/500
+  cached 468/500
+  cached 470/500
+  cached 472/500
+  cached 474/500
+  cached 476/500
+  cached 478/500
+  cached 480/500
+  cached 482/500
+  cached 484/500
+  cached 486/500
+  cached 488/500
+  cached 490/500
+  cached 492/500
+  cached 494/500
+  cached 496/500
+  cached 498/500
+  cached 500/500
+saved results/M4/meta-llama_Meta-Llama-3.1-8B-Instruct/activations_train.pt  shape=(500, 33, 4096)
+  cached 2/200
+  cached 4/200
+  cached 6/200
+  cached 8/200
+  cached 10/200
+  cached 12/200
+  cached 14/200
+  cached 16/200
+  cached 18/200
+  cached 20/200
+  cached 22/200
+  cached 24/200
+  cached 26/200
+  cached 28/200
+  cached 30/200
+  cached 32/200
+  cached 34/200
+  cached 36/200
+  cached 38/200
+  cached 40/200
+  cached 42/200
+  cached 44/200
+  cached 46/200
+  cached 48/200
+  cached 50/200
+  cached 52/200
+  cached 54/200
+  cached 56/200
+  cached 58/200
+  cached 60/200
+  cached 62/200
+  cached 64/200
+  cached 66/200
+  cached 68/200
+  cached 70/200
+  cached 72/200
+  cached 74/200
+  cached 76/200
+  cached 78/200
+  cached 80/200
+  cached 82/200
+  cached 84/200
+  cached 86/200
+  cached 88/200
+  cached 90/200
+  cached 92/200
+  cached 94/200
+  cached 96/200
+  cached 98/200
+  cached 100/200
+  cached 102/200
+  cached 104/200
+  cached 106/200
+  cached 108/200
+  cached 110/200
+  cached 112/200
+  cached 114/200
+  cached 116/200
+  cached 118/200
+  cached 120/200
+  cached 122/200
+  cached 124/200
+  cached 126/200
+  cached 128/200
+  cached 130/200
+  cached 132/200
+  cached 134/200
+  cached 136/200
+  cached 138/200
+  cached 140/200
+  cached 142/200
+  cached 144/200
+  cached 146/200
+  cached 148/200
+  cached 150/200
+  cached 152/200
+  cached 154/200
+  cached 156/200
+  cached 158/200
+  cached 160/200
+  cached 162/200
+  cached 164/200
+  cached 166/200
+  cached 168/200
+  cached 170/200
+  cached 172/200
+  cached 174/200
+  cached 176/200
+  cached 178/200
+  cached 180/200
+  cached 182/200
+  cached 184/200
+  cached 186/200
+  cached 188/200
+  cached 190/200
+  cached 192/200
+  cached 194/200
+  cached 196/200
+  cached 198/200
+  cached 200/200
+saved results/M4/meta-llama_Meta-Llama-3.1-8B-Instruct/activations_test.pt  shape=(200, 33, 4096)
+  cached 2/60
+  cached 4/60
+  cached 6/60
+  cached 8/60
+  cached 10/60
+  cached 12/60
+  cached 14/60
+  cached 16/60
+  cached 18/60
+  cached 20/60
+  cached 22/60
+  cached 24/60
+  cached 26/60
+  cached 28/60
+  cached 30/60
+  cached 32/60
+  cached 34/60
+  cached 36/60
+  cached 38/60
+  cached 40/60
+  cached 42/60
+  cached 44/60
+  cached 46/60
+  cached 48/60
+  cached 50/60
+  cached 52/60
+  cached 54/60
+  cached 56/60
+  cached 58/60
+  cached 60/60
+saved results/M4/meta-llama_Meta-Llama-3.1-8B-Instruct/activations_anchor.pt  shape=(60, 33, 4096)
+
+=== M4.1: cross-opponent transfer ===
+  best layer for deontologist-vs-selfish: 2 (AllD AUC=1.000)
+  best layer for utilitarian-vs-selfish: 2 (AllD AUC=1.000)
+  best layer for virtue_integrity-vs-virtue_phronesis: 2 (AllD AUC=1.000)
+saved figures/fig_m4_cross_opponent.png
+
+=== M4.3: persona subspace ===
+  cos(deon_vs_self, util_vs_self) = +0.776
+  cos(deon_vs_self, virtue_vs_self) = +0.912
+  cos(deon_vs_self, integ_vs_phron) = +0.350
+  cos(deon_vs_self, deon_vs_util) = +0.697
+  cos(util_vs_self, virtue_vs_self) = +0.781
+  cos(util_vs_self, integ_vs_phron) = +0.083
+  cos(util_vs_self, deon_vs_util) = +0.089
+  cos(virtue_vs_self, integ_vs_phron) = +0.261
+  cos(virtue_vs_self, deon_vs_util) = +0.552
+  cos(integ_vs_phron, deon_vs_util) = +0.458
+saved figures/fig_m4_persona_subspace.png

@@ -77,10 +77,10 @@ def generate(model, tok, prompt, max_new_tokens=256, temperature=1.0, seed=0):
     # Try chat template first (Llama-3.1, Qwen2.5)
     try:
         messages = [{"role": "user", "content": prompt}]
-        inputs = tok.apply_chat_template(messages, return_tensors="pt", add_generation_prompt=True)
-        inputs = inputs.to(model.device)
+        text_in = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     except Exception:
-        inputs = tok(prompt, return_tensors="pt").input_ids.to(model.device)
+        text_in = prompt
+    inputs = tok(text_in, return_tensors="pt", add_special_tokens=False).input_ids.to(model.device)
 
     with torch.no_grad():
         out = model.generate(
@@ -248,7 +248,7 @@ def main():
             for s in range(args.seeds):
                 safe_model = args.model.replace("/", "_")
                 tgt = results_dir / "M1" / safe_model / persona / f"seed{s}_opp{OPPONENT}.jsonl"
-                if tgt.exists():
+                if tgt.exists() and '"type": "summary"' in tgt.read_text():
                     print(f"SKIP {tgt}")
                     continue
                 run_trajectory(model, tok, args.model, persona, s, results_dir)

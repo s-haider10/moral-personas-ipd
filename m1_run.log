@@ -1,0 +1,32 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+loading meta-llama/Meta-Llama-3.1-8B-Instruct ...
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<01:48,  2.68it/s]Loading weights:   8%|▊         | 22/291 [00:00<00:04, 54.04it/s]Loading weights:  11%|█         | 31/291 [00:00<00:04, 62.46it/s]Loading weights:  14%|█▍        | 42/291 [00:00<00:03, 74.11it/s]Loading weights:  20%|█▉        | 58/291 [00:00<00:02, 87.78it/s]Loading weights:  24%|██▎       | 69/291 [00:00<00:02, 87.98it/s]Loading weights:  28%|██▊       | 81/291 [00:01<00:02, 95.53it/s]Loading weights:  32%|███▏      | 94/291 [00:01<00:02, 97.71it/s]Loading weights:  36%|███▌      | 105/291 [00:01<00:01, 95.25it/s]Loading weights:  41%|████      | 120/291 [00:01<00:01, 108.55it/s]Loading weights:  45%|████▌     | 132/291 [00:01<00:01, 96.58it/s] Loading weights:  50%|█████     | 146/291 [00:01<00:01, 106.81it/s]Loading weights:  54%|█████▍    | 158/291 [00:01<00:01, 94.82it/s] Loading weights:  60%|██████    | 175/291 [00:02<00:01, 94.84it/s]Loading weights:  66%|██████▋   | 193/291 [00:02<00:00, 105.13it/s]Loading weights:  70%|███████   | 204/291 [00:02<00:00, 101.15it/s]Loading weights:  75%|███████▌  | 219/291 [00:02<00:00, 112.35it/s]Loading weights:  79%|███████▉  | 231/291 [00:02<00:00, 98.58it/s] Loading weights:  85%|████████▍ | 247/291 [00:02<00:00, 96.38it/s]Loading weights:  90%|████████▉ | 261/291 [00:02<00:00, 105.46it/s]Loading weights:  94%|█████████▍| 274/291 [00:02<00:00, 106.79it/s]Loading weights:  98%|█████████▊| 286/291 [00:03<00:00, 103.65it/s]Loading weights: 100%|██████████| 291/291 [00:03<00:00, 93.93it/s] 
+[transformers] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+SKIP results/M1/meta-llama_Meta-Llama-3.1-8B-Instruct/virtue_integrity/seed0_oppAllD.jsonl
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_integrity seed1: D=17/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_integrity seed2: D=16/20 (L=3)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_integrity seed3: D=17/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_integrity seed4: D=14/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_phronesis seed0: D=13/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_phronesis seed1: D=11/20 (L=2)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_phronesis seed2: D=12/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_phronesis seed3: D=10/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct virtue_phronesis seed4: D=13/20 (L=2)
+  meta-llama/Meta-Llama-3.1-8B-Instruct deontologist seed0: D=11/20 (L=3)
+  meta-llama/Meta-Llama-3.1-8B-Instruct deontologist seed1: D=10/20 (L=4)
+  meta-llama/Meta-Llama-3.1-8B-Instruct deontologist seed2: D=13/20 (L=1)
+  meta-llama/Meta-Llama-3.1-8B-Instruct deontologist seed3: D=13/20 (L=2)
+  meta-llama/Meta-Llama-3.1-8B-Instruct deontologist seed4: D=11/20 (L=1)
+
+loaded n=14 trajectories
+
+Per-cell defection rates:
+                                                        mean    std  count
+model                                 persona                             
+meta-llama/Meta-Llama-3.1-8B-Instruct deontologist      0.58  0.067      5
+                                      virtue_integrity  0.80  0.071      4
+                                      virtue_phronesis  0.59  0.065      5
+
+=== M1 KILL SWITCH ===
+  meta-llama/Meta-Llama-3.1-8B-Instruct: D(phronesis) - D(integrity) = -0.210   [PASS, proceed to M2]

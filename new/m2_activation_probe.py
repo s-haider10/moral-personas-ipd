@@ -86,7 +86,10 @@ def build_prompts(personas, n_per_persona, seed, n_rounds_total=20):
     rng = random.Random(seed)
     prompts = []  # list of (persona, prompt_text, round_num)
 
-    # Sample history-states first, then duplicate across personas
+    # Sample history-states first, then duplicate across personas. Each state
+    # gets a stable id so a probe can be cross-validated leave-one-history-out
+    # (LOMO): holding out a state removes *both* its persona instances, so a
+    # probe that merely memorizes history tokens cannot generalize.
     states = []
     for _ in range(n_per_persona):
         r = rng.randint(1, n_rounds_total)
@@ -94,7 +97,7 @@ def build_prompts(personas, n_per_persona, seed, n_rounds_total=20):
         states.append((r, history, my_total, opp_total))
 
     for persona in personas:
-        for r, history, my_total, opp_total in states:
+        for state_id, (r, history, my_total, opp_total) in enumerate(states):
             prompt = PROMPT_TEMPLATE.format(
                 persona_intro=E13_PERSONA_PROMPT[persona],
                 history=format_history(history),
@@ -103,7 +106,8 @@ def build_prompts(personas, n_per_persona, seed, n_rounds_total=20):
                 round_num=r,
                 n_rounds=n_rounds_total,
             )
-            prompts.append({"persona": persona, "round": r, "prompt": prompt})
+            prompts.append({"persona": persona, "round": r,
+                             "state_id": state_id, "prompt": prompt})
     return prompts
 
 
@@ -141,6 +145,7 @@ def cache_activations(model, tok, prompts, batch_size=4, output_path=None):
     personas_out = []
     rounds_out = []
     labels_out = []
+    state_ids_out = []
 
     for batch_start in range(0, n, batch_size):
         batch = prompts[batch_start: batch_start + batch_size]
@@ -184,6 +189,7 @@ def cache_activations(model, tok, prompts, batch_size=4, output_path=None):
             personas_out.append(p["persona"])
             rounds_out.append(p["round"])
             labels_out.append(label_map[p["persona"]])
+            state_ids_out.append(p.get("state_id", -1))
 
         print(f"  cached {batch_start + len(batch)}/{n}")
 
@@ -192,6 +198,7 @@ def cache_activations(model, tok, prompts, batch_size=4, output_path=None):
         "personas": personas_out,
         "rounds": rounds_out,
         "labels": torch.tensor(labels_out),
+        "state_ids": torch.tensor(state_ids_out),
     }
     if output_path:
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -201,35 +208,77 @@ def cache_activations(model, tok, prompts, batch_size=4, output_path=None):
 
 
 def linear_probe_each_layer(train, test):
-    """Logistic regression at each layer; binary integrity-vs-phronesis."""
+    """Leave-one-history-out (LOMO) logistic probe at each layer.
+
+    A plain train/test split saturates here: with d_model (~5120) >> n_prompts
+    (~120) a logistic probe separates any labelling perfectly, so every layer
+    reports AUC=1.0 and the sweep carries no localization signal.
+
+    Robust design (matches the README's M2.1 "LOMO AUC" hypothesis):
+      - pool train+test so every history-state is usable as a fold;
+      - group by state_id and hold out one history-state per fold, which
+        removes *both* its integrity and phronesis instances at once -- a probe
+        that memorizes history tokens cannot score on the held-out fold;
+      - PCA-reduce each layer to N_PCA components fit on the training fold
+        only. This is the key control: with d_model (~4096) >> n a logistic
+        probe separates *any* labelling, so a full-dim probe is uninformative.
+        Reducing to d < n removes that trivial-separation artifact -- if the
+        contrast survives in a low-dim subspace it is a real representation,
+        if it collapses to chance it was pure d>>n overfitting;
+      - strong L2 inside the reduced space as a second guard;
+      - aggregate out-of-fold probabilities into a single AUC per layer.
+    """
     from sklearn.linear_model import LogisticRegression
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.decomposition import PCA
+    from sklearn.pipeline import make_pipeline
     from sklearn.metrics import roc_auc_score
+    from sklearn.model_selection import LeaveOneGroupOut
 
-    # Restrict to the two virtue personas; drop deontologist for the binary probe
-    train_mask = (train["labels"] == 0) | (train["labels"] == 1)
-    test_mask = (test["labels"] == 0) | (test["labels"] == 1)
+    acts, labels, states = [], [], []
+    for b in (train, test):
+        mask = (b["labels"] == 0) | (b["labels"] == 1)
+        acts.append(b["activations"][mask].numpy())
+        labels.append(b["labels"][mask].numpy())
+        states.append(b["state_ids"][mask].numpy())
+    X_all = np.concatenate(acts, axis=0)        # [n, L, D]
+    y = np.concatenate(labels, axis=0)          # [n]
 
-    X_train_all = train["activations"][train_mask].numpy()  # [n, L, D]
-    y_train = train["labels"][train_mask].numpy()
-    X_test_all = test["activations"][test_mask].numpy()
-    y_test = test["labels"][test_mask].numpy()
+    # Make group ids unique per (bundle, state) so train and test states do
+    # not collide into the same fold.
+    offset = 0
+    fixed_groups = []
+    for g in states:
+        fixed_groups.append(g + offset)
+        offset += (int(g.max()) + 1) if len(g) else 0
+    groups = np.concatenate(fixed_groups, axis=0)
 
-    n_layers = X_train_all.shape[1]
+    n_layers = X_all.shape[1]
+    logo = LeaveOneGroupOut()
+    N_PCA = 16  # d < n per fold; removes the d>>n trivial-separation artifact
+    C = 0.5
     results = []
     for L in range(n_layers):
-        X_tr = X_train_all[:, L, :]
-        X_te = X_test_all[:, L, :]
-        clf = LogisticRegression(max_iter=500, C=1.0)
-        clf.fit(X_tr, y_train)
-        pred = clf.predict(X_te)
-        acc = (pred == y_test).mean()
+        XL = X_all[:, L, :]
+        oof_proba = np.zeros(len(y), dtype=np.float64)
+        oof_pred = np.zeros(len(y), dtype=np.int64)
+        for tr_idx, te_idx in logo.split(XL, y, groups):
+            n_comp = min(N_PCA, len(tr_idx) - 1, XL.shape[1])
+            clf = make_pipeline(
+                StandardScaler(),
+                PCA(n_components=n_comp, random_state=0),
+                LogisticRegression(max_iter=2000, C=C),
+            )
+            clf.fit(XL[tr_idx], y[tr_idx])
+            oof_proba[te_idx] = clf.predict_proba(XL[te_idx])[:, 1]
+            oof_pred[te_idx] = clf.predict(XL[te_idx])
+        acc = float((oof_pred == y).mean())
         try:
-            proba = clf.predict_proba(X_te)[:, 1]
-            auc = roc_auc_score(y_test, proba)
+            auc = float(roc_auc_score(y, oof_proba))
         except Exception:
             auc = float("nan")
-        results.append({"layer": L, "acc": float(acc), "auc": float(auc)})
-        print(f"  layer {L:3d}: acc={acc:.3f}  auc={auc:.3f}")
+        results.append({"layer": L, "acc": acc, "auc": auc})
+        print(f"  layer {L:3d}: LOMO acc={acc:.3f}  auc={auc:.3f}")
     return results
 
 

@@ -1,0 +1,16 @@
+model,persona,seed,D_raw,L
+meta-llama/Meta-Llama-3.1-8B-Instruct,deontologist,0,0.55,3
+meta-llama/Meta-Llama-3.1-8B-Instruct,deontologist,1,0.5,4
+meta-llama/Meta-Llama-3.1-8B-Instruct,deontologist,2,0.65,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,deontologist,3,0.65,2
+meta-llama/Meta-Llama-3.1-8B-Instruct,deontologist,4,0.55,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_integrity,0,0.7,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_integrity,1,0.85,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_integrity,2,0.8,3
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_integrity,3,0.85,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_integrity,4,0.7,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_phronesis,0,0.65,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_phronesis,1,0.55,2
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_phronesis,2,0.6,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_phronesis,3,0.5,1
+meta-llama/Meta-Llama-3.1-8B-Instruct,virtue_phronesis,4,0.65,2

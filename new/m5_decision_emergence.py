@@ -145,13 +145,14 @@ def logit_lens_at_action_token(model, tok, prompt, c_id, d_id):
         final_token_pos: int
     """
     try:
-        ids = tok.apply_chat_template(
+        text_in = tok.apply_chat_template(
             [{"role": "user", "content": prompt + "\n\nACTION:"}],
-            return_tensors="pt",
+            tokenize=False,
             add_generation_prompt=True,
         )
     except Exception:
-        ids = tok(prompt + "\n\nACTION:", return_tensors="pt").input_ids
+        text_in = prompt + "\n\nACTION:"
+    ids = tok(text_in, return_tensors="pt", add_special_tokens=False).input_ids
 
     ids = ids.to(model.device)
     out = model(ids, output_hidden_states=True)
@@ -177,13 +178,14 @@ def logit_lens_at_action_token(model, tok, prompt, c_id, d_id):
 def logit_lens_at_position(model, tok, prompt, c_id, d_id, position_fraction=0.5):
     """Null control: logit lens at a non-action token position (middle of prompt)."""
     try:
-        ids = tok.apply_chat_template(
+        text_in = tok.apply_chat_template(
             [{"role": "user", "content": prompt + "\n\nACTION:"}],
-            return_tensors="pt",
+            tokenize=False,
             add_generation_prompt=True,
         )
     except Exception:
-        ids = tok(prompt + "\n\nACTION:", return_tensors="pt").input_ids
+        text_in = prompt + "\n\nACTION:"
+    ids = tok(text_in, return_tensors="pt", add_special_tokens=False).input_ids
     ids = ids.to(model.device)
     out = model(ids, output_hidden_states=True)
     W_unembed = get_unembed(model).float()
@@ -198,12 +200,28 @@ def logit_lens_at_position(model, tok, prompt, c_id, d_id, position_fraction=0.5
     return np.array(layer_c, dtype=np.float32), np.array(layer_d, dtype=np.float32), pos
 
 
-def find_decision_layer(layer_logits_c, layer_logits_d, threshold=1.0):
-    """First layer index where |Delta_l| >= threshold."""
-    deltas = layer_logits_d - layer_logits_c
-    crossings = np.where(np.abs(deltas) >= threshold)[0]
+DECISION_FRACTION = 0.5  # fraction of the final logit gap that marks "decided"
+
+
+def find_decision_layer(layer_logits_c, layer_logits_d, fraction=DECISION_FRACTION):
+    """First layer at which |Delta_l| reaches `fraction` of the *final* gap.
+
+    A fixed absolute threshold (the old |Delta|>=1.0) does not work here: the
+    C/D logit gap at the action token is model-dependent and for Llama-3.1-8B
+    peaks around ~0.5, so an absolute-1.0 rule never fires and every round
+    collapses to the last-layer fallback. Scaling the threshold to each round's
+    own final gap is the standard logit-lens convention -- it asks "where is
+    the decision half-formed" rather than "where does it cross an arbitrary
+    nat-count", and yields a meaningful per-round decision depth.
+    """
+    deltas = np.asarray(layer_logits_d) - np.asarray(layer_logits_c)
+    final = abs(deltas[-1])
+    if final < 1e-6:
+        return len(deltas) - 1  # no decision formed; fall back to last layer
+    target = fraction * final
+    crossings = np.where(np.abs(deltas) >= target)[0]
     if len(crossings) == 0:
-        return len(deltas) - 1  # never crossed, default to last layer
+        return len(deltas) - 1
     return int(crossings[0])
 
 
@@ -213,13 +231,14 @@ def generate_for_action_and_cot(model, tok, prompt, max_new_tokens=256,
     """Generate the full response so we can parse action and measure CoT length."""
     torch.manual_seed(seed)
     try:
-        ids = tok.apply_chat_template(
+        text_in = tok.apply_chat_template(
             [{"role": "user", "content": prompt}],
-            return_tensors="pt",
+            tokenize=False,
             add_generation_prompt=True,
         )
     except Exception:
-        ids = tok(prompt, return_tensors="pt").input_ids
+        text_in = prompt
+    ids = tok(text_in, return_tensors="pt", add_special_tokens=False).input_ids
     ids = ids.to(model.device)
     out = model.generate(
         ids,
@@ -316,7 +335,7 @@ def run_trajectory_with_logit_lens(model, tok, model_name, persona, opponent,
                          "i choose d" in justification_lower)
             mismatch = (action == "D" and says_coop) or (action == "C" and says_def)
 
-            dec_layer = find_decision_layer(layer_c, layer_d, threshold=1.0)
+            dec_layer = find_decision_layer(layer_c, layer_d)
             cot_len = len(justification.split())
 
             rec = {
@@ -381,7 +400,11 @@ def load_m5_rows(results_dir, model_name):
                         "normative_defection": rec["normative_defection"],
                         "mismatch": rec["mismatch"],
                         "cot_length": rec["cot_length_words"],
-                        "decision_layer": rec["decision_layer"],
+                        # Recompute from the stored per-layer delta so the
+                        # data-driven threshold applies uniformly, including
+                        # to trajectories cached before the threshold fix.
+                        "decision_layer": find_decision_layer(
+                            rec["layer_logit_c"], rec["layer_logit_d"]),
                         "n_layers": rec["n_layers"],
                         "layer_delta": rec["layer_delta"],
                         "null_delta": [d - c for c, d in zip(rec["null_logit_c"],
@@ -519,8 +542,6 @@ def fig_m5_layer_decision(df, out_path):
             ax.plot(xs, mean, label=f"{m} | {label}", color=color, alpha=0.8)
             ax.fill_between(xs, mean - se, mean + se, alpha=0.15, color=color)
     ax.axhline(0, ls="--", c="gray", alpha=0.5)
-    ax.axhline(1.0, ls=":", c="black", alpha=0.5, label="threshold")
-    ax.axhline(-1.0, ls=":", c="black", alpha=0.5)
     ax.set_xlabel("layer (normalized depth)")
     ax.set_ylabel("logit(D) - logit(C) at action token")
     ax.set_title("M5: layer-resolved C-vs-D logit gap by trajectory type")
@@ -624,7 +645,7 @@ def main():
                         safe_model = args.model.replace("/", "_")
                         tgt = (results_dir / "M5" / safe_model / persona /
                                f"seed{s}_opp{opp}.jsonl")
-                        if tgt.exists():
+                        if tgt.exists() and '"type": "summary"' in tgt.read_text():
                             print(f"SKIP {tgt}")
                             continue
                         try:

@@ -1,0 +1,11 @@
+pair_a,pair_b,cosine,layer
+deon_vs_self,util_vs_self,0.7759095430374146,16
+deon_vs_self,virtue_vs_self,0.9119609594345093,16
+deon_vs_self,integ_vs_phron,0.34986549615859985,16
+deon_vs_self,deon_vs_util,0.697156548500061,16
+util_vs_self,virtue_vs_self,0.7813045382499695,16
+util_vs_self,integ_vs_phron,0.0829087644815445,16
+util_vs_self,deon_vs_util,0.0886663869023323,16
+virtue_vs_self,integ_vs_phron,0.2612670958042145,16
+virtue_vs_self,deon_vs_util,0.5520177483558655,16
+integ_vs_phron,deon_vs_util,0.45819348096847534,16

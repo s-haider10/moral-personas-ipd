@@ -193,13 +193,14 @@ def replay_hook(model, layer_idx, state: PatchState):
 
 def encode_prompt(tok, prompt, model_device):
     try:
-        ids = tok.apply_chat_template(
+        text_in = tok.apply_chat_template(
             [{"role": "user", "content": prompt}],
-            return_tensors="pt",
+            tokenize=False,
             add_generation_prompt=True,
         )
     except Exception:
-        ids = tok(prompt, return_tensors="pt").input_ids
+        text_in = prompt
+    ids = tok(text_in, return_tensors="pt", add_special_tokens=False).input_ids
     return ids.to(model_device)
 
 
@@ -231,7 +232,7 @@ def run_steered_trajectory(model, tok, model_name, persona, alpha, direction,
     safe_model = model_name.replace("/", "_")
     out_dir = results_dir / "M3" / safe_model / "steering"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"alpha{alpha:+.1f}_seed{seed}_persona{persona}.jsonl"
+    out_path = out_dir / f"layer{layer_idx}_alpha{alpha:+.1f}_seed{seed}_persona{persona}.jsonl"
 
     meta = {
         "type": "meta",
@@ -288,6 +289,7 @@ def run_steered_trajectory(model, tok, model_name, persona, alpha, direction,
                     "justification": justification,
                     "raw_response": text,
                 }) + "\n")
+                f.flush()
 
         n_d = sum(1 for h in history if h[0] == "D")
         L = next((i + 1 for i, h in enumerate(history) if h[0] == "D"), None)
@@ -297,6 +299,7 @@ def run_steered_trajectory(model, tok, model_name, persona, alpha, direction,
             "first_defection_round": L,
             "agent_total": my_total,
         }) + "\n")
+        f.flush()
     print(f"  steering {persona} alpha={alpha:+.1f} seed{seed}: D={n_d}/{N_ROUNDS}")
     return n_d / N_ROUNDS
 
@@ -318,7 +321,7 @@ def run_patched_trajectory(model, tok, model_name, source_persona, target_person
     safe_model = model_name.replace("/", "_")
     out_dir = results_dir / "M3" / safe_model / "patching"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"seed{seed}_src{source_persona}_tgt{target_persona}.jsonl"
+    out_path = out_dir / f"layer{layer_idx}_seed{seed}_src{source_persona}_tgt{target_persona}.jsonl"
 
     meta = {
         "type": "meta",
@@ -398,6 +401,7 @@ def run_patched_trajectory(model, tok, model_name, source_persona, target_person
                 "justification": justification,
                 "raw_response": text,
             }) + "\n")
+            f.flush()
 
         n_d = sum(1 for h in history if h[0] == "D")
         L = next((i + 1 for i, h in enumerate(history) if h[0] == "D"), None)
@@ -614,8 +618,8 @@ def main():
             for alpha in alphas:
                 for s in range(args.seeds):
                     tgt = (results_dir / "M3" / safe_model / "steering" /
-                           f"alpha{alpha:+.1f}_seed{s}_persona{persona}.jsonl")
-                    if tgt.exists():
+                           f"layer{best_layer}_alpha{alpha:+.1f}_seed{s}_persona{persona}.jsonl")
+                    if tgt.exists() and '"type": "summary"' in tgt.read_text():
                         print(f"SKIP {tgt}"); continue
                     run_steered_trajectory(
                         model, tok, args.model, persona, alpha, v_unit,
@@ -634,8 +638,8 @@ def main():
         for src, tgt in contrasts:
             for s in range(args.seeds):
                 target_file = (results_dir / "M3" / safe_model / "patching" /
-                               f"seed{s}_src{src}_tgt{tgt}.jsonl")
-                if target_file.exists():
+                               f"layer{best_layer}_seed{s}_src{src}_tgt{tgt}.jsonl")
+                if target_file.exists() and '"type": "summary"' in target_file.read_text():
                     print(f"SKIP {target_file}"); continue
                 run_patched_trajectory(model, tok, args.model, src, tgt,
                                        best_layer, s, results_dir)

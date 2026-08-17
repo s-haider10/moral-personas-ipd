@@ -1,0 +1,276 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<02:54,  1.66it/s]Loading weights:   4%|▍         | 13/291 [00:00<00:11, 23.82it/s]Loading weights:   8%|▊         | 24/291 [00:00<00:06, 41.99it/s]Loading weights:  11%|█▏        | 33/291 [00:00<00:04, 52.80it/s]Loading weights:  16%|█▌        | 46/291 [00:01<00:03, 69.13it/s]Loading weights:  20%|█▉        | 58/291 [00:01<00:02, 79.96it/s]Loading weights:  23%|██▎       | 68/291 [00:01<00:02, 83.59it/s]Loading weights:  27%|██▋       | 78/291 [00:01<00:02, 86.76it/s]Loading weights:  32%|███▏      | 94/291 [00:01<00:02, 92.38it/s]Loading weights:  36%|███▌      | 104/291 [00:01<00:02, 93.48it/s]Loading weights:  42%|████▏     | 121/291 [00:01<00:01, 98.91it/s]Loading weights:  45%|████▌     | 132/291 [00:01<00:01, 98.84it/s]Loading weights:  51%|█████     | 148/291 [00:02<00:01, 105.73it/s]Loading weights:  55%|█████▍    | 159/291 [00:02<00:01, 101.08it/s]Loading weights:  60%|██████    | 175/291 [00:02<00:01, 106.36it/s]Loading weights:  64%|██████▍   | 186/291 [00:02<00:01, 101.51it/s]Loading weights:  69%|██████▉   | 202/291 [00:02<00:00, 106.27it/s]Loading weights:  73%|███████▎  | 213/291 [00:02<00:00, 102.44it/s]Loading weights:  79%|███████▊  | 229/291 [00:02<00:00, 107.33it/s]Loading weights:  82%|████████▏ | 240/291 [00:02<00:00, 102.31it/s]Loading weights:  88%|████████▊ | 256/291 [00:03<00:00, 106.33it/s]Loading weights:  92%|█████████▏| 267/291 [00:03<00:00, 101.54it/s]Loading weights:  97%|█████████▋| 283/291 [00:03<00:00, 97.91it/s] Loading weights: 100%|██████████| 291/291 [00:03<00:00, 86.76it/s]
+[transformers] The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+C-token id=356 (' C')  D-token id=423 (' D')
+  deontologist vs AllD seed0: D=11/20
+  deontologist vs AllD seed1: D=10/20
+  deontologist vs AllD seed2: D=13/20
+  deontologist vs AllD seed3: D=13/20
+  deontologist vs AllD seed4: D=11/20
+  deontologist vs AllD seed5: D=14/20
+  deontologist vs AllD seed6: D=14/20
+  deontologist vs AllD seed7: D=12/20
+  deontologist vs AllD seed8: D=13/20
+  deontologist vs AllD seed9: D=11/20
+  deontologist vs AllC seed0: D=1/20
+  deontologist vs AllC seed1: D=5/20
+  deontologist vs AllC seed2: D=13/20
+  deontologist vs AllC seed3: D=5/20
+  deontologist vs AllC seed4: D=11/20
+  deontologist vs AllC seed5: D=3/20
+  deontologist vs AllC seed6: D=2/20
+  deontologist vs AllC seed7: D=5/20
+  deontologist vs AllC seed8: D=3/20
+  deontologist vs AllC seed9: D=8/20
+  deontologist vs TFT seed0: D=3/20
+  deontologist vs TFT seed1: D=4/20
+  deontologist vs TFT seed2: D=7/20
+  deontologist vs TFT seed3: D=6/20
+  deontologist vs TFT seed4: D=4/20
+  deontologist vs TFT seed5: D=5/20
+  deontologist vs TFT seed6: D=3/20
+  deontologist vs TFT seed7: D=3/20
+  deontologist vs TFT seed8: D=5/20
+  deontologist vs TFT seed9: D=4/20
+FAIL deontologist GTFT seed0: GTFT
+FAIL deontologist GTFT seed1: GTFT
+FAIL deontologist GTFT seed2: GTFT
+FAIL deontologist GTFT seed3: GTFT
+FAIL deontologist GTFT seed4: GTFT
+FAIL deontologist GTFT seed5: GTFT
+FAIL deontologist GTFT seed6: GTFT
+FAIL deontologist GTFT seed7: GTFT
+FAIL deontologist GTFT seed8: GTFT
+FAIL deontologist GTFT seed9: GTFT
+  deontologist vs Random seed0: D=9/20
+  deontologist vs Random seed1: D=8/20
+  deontologist vs Random seed2: D=9/20
+  deontologist vs Random seed3: D=7/20
+  deontologist vs Random seed4: D=7/20
+  deontologist vs Random seed5: D=6/20
+  deontologist vs Random seed6: D=11/20
+  deontologist vs Random seed7: D=7/20
+  deontologist vs Random seed8: D=8/20
+  deontologist vs Random seed9: D=12/20
+  utilitarian vs AllD seed0: D=14/20
+  utilitarian vs AllD seed1: D=15/20
+  utilitarian vs AllD seed2: D=13/20
+  utilitarian vs AllD seed3: D=12/20
+  utilitarian vs AllD seed4: D=12/20
+  utilitarian vs AllD seed5: D=11/20
+  utilitarian vs AllD seed6: D=13/20
+  utilitarian vs AllD seed7: D=15/20
+  utilitarian vs AllD seed8: D=15/20
+  utilitarian vs AllD seed9: D=14/20
+  utilitarian vs AllC seed0: D=16/20
+  utilitarian vs AllC seed1: D=16/20
+  utilitarian vs AllC seed2: D=16/20
+  utilitarian vs AllC seed3: D=17/20
+  utilitarian vs AllC seed4: D=17/20
+  utilitarian vs AllC seed5: D=16/20
+  utilitarian vs AllC seed6: D=18/20
+  utilitarian vs AllC seed7: D=17/20
+  utilitarian vs AllC seed8: D=14/20
+  utilitarian vs AllC seed9: D=16/20
+  utilitarian vs TFT seed0: D=16/20
+  utilitarian vs TFT seed1: D=9/20
+  utilitarian vs TFT seed2: D=13/20
+  utilitarian vs TFT seed3: D=12/20
+  utilitarian vs TFT seed4: D=15/20
+  utilitarian vs TFT seed5: D=14/20
+  utilitarian vs TFT seed6: D=14/20
+  utilitarian vs TFT seed7: D=11/20
+  utilitarian vs TFT seed8: D=13/20
+  utilitarian vs TFT seed9: D=15/20
+FAIL utilitarian GTFT seed0: GTFT
+FAIL utilitarian GTFT seed1: GTFT
+FAIL utilitarian GTFT seed2: GTFT
+FAIL utilitarian GTFT seed3: GTFT
+FAIL utilitarian GTFT seed4: GTFT
+FAIL utilitarian GTFT seed5: GTFT
+FAIL utilitarian GTFT seed6: GTFT
+FAIL utilitarian GTFT seed7: GTFT
+FAIL utilitarian GTFT seed8: GTFT
+FAIL utilitarian GTFT seed9: GTFT
+  utilitarian vs Random seed0: D=14/20
+  utilitarian vs Random seed1: D=13/20
+  utilitarian vs Random seed2: D=11/20
+  utilitarian vs Random seed3: D=14/20
+  utilitarian vs Random seed4: D=16/20
+  utilitarian vs Random seed5: D=15/20
+  utilitarian vs Random seed6: D=13/20
+  utilitarian vs Random seed7: D=14/20
+  utilitarian vs Random seed8: D=12/20
+  utilitarian vs Random seed9: D=15/20
+  virtue_integrity vs AllD seed0: D=14/20
+  virtue_integrity vs AllD seed1: D=17/20
+  virtue_integrity vs AllD seed2: D=16/20
+  virtue_integrity vs AllD seed3: D=17/20
+  virtue_integrity vs AllD seed4: D=14/20
+  virtue_integrity vs AllD seed5: D=14/20
+  virtue_integrity vs AllD seed6: D=15/20
+  virtue_integrity vs AllD seed7: D=14/20
+  virtue_integrity vs AllD seed8: D=16/20
+  virtue_integrity vs AllD seed9: D=15/20
+  virtue_integrity vs AllC seed0: D=16/20
+  virtue_integrity vs AllC seed1: D=2/20
+  virtue_integrity vs AllC seed2: D=2/20
+  virtue_integrity vs AllC seed3: D=18/20
+  virtue_integrity vs AllC seed4: D=14/20
+  virtue_integrity vs AllC seed5: D=3/20
+  virtue_integrity vs AllC seed6: D=3/20
+  virtue_integrity vs AllC seed7: D=15/20
+  virtue_integrity vs AllC seed8: D=3/20
+  virtue_integrity vs AllC seed9: D=15/20
+  virtue_integrity vs TFT seed0: D=13/20
+  virtue_integrity vs TFT seed1: D=4/20
+  virtue_integrity vs TFT seed2: D=5/20
+  virtue_integrity vs TFT seed3: D=17/20
+  virtue_integrity vs TFT seed4: D=17/20
+  virtue_integrity vs TFT seed5: D=4/20
+  virtue_integrity vs TFT seed6: D=3/20
+  virtue_integrity vs TFT seed7: D=1/20
+  virtue_integrity vs TFT seed8: D=2/20
+  virtue_integrity vs TFT seed9: D=13/20
+FAIL virtue_integrity GTFT seed0: GTFT
+FAIL virtue_integrity GTFT seed1: GTFT
+FAIL virtue_integrity GTFT seed2: GTFT
+FAIL virtue_integrity GTFT seed3: GTFT
+FAIL virtue_integrity GTFT seed4: GTFT
+FAIL virtue_integrity GTFT seed5: GTFT
+FAIL virtue_integrity GTFT seed6: GTFT
+FAIL virtue_integrity GTFT seed7: GTFT
+FAIL virtue_integrity GTFT seed8: GTFT
+FAIL virtue_integrity GTFT seed9: GTFT
+  virtue_integrity vs Random seed0: D=13/20
+  virtue_integrity vs Random seed1: D=12/20
+  virtue_integrity vs Random seed2: D=3/20
+  virtue_integrity vs Random seed3: D=17/20
+  virtue_integrity vs Random seed4: D=18/20
+  virtue_integrity vs Random seed5: D=15/20
+  virtue_integrity vs Random seed6: D=7/20
+  virtue_integrity vs Random seed7: D=15/20
+  virtue_integrity vs Random seed8: D=8/20
+  virtue_integrity vs Random seed9: D=15/20
+  virtue_phronesis vs AllD seed0: D=13/20
+  virtue_phronesis vs AllD seed1: D=11/20
+  virtue_phronesis vs AllD seed2: D=12/20
+  virtue_phronesis vs AllD seed3: D=10/20
+  virtue_phronesis vs AllD seed4: D=13/20
+  virtue_phronesis vs AllD seed5: D=13/20
+  virtue_phronesis vs AllD seed6: D=15/20
+  virtue_phronesis vs AllD seed7: D=11/20
+  virtue_phronesis vs AllD seed8: D=12/20
+  virtue_phronesis vs AllD seed9: D=15/20
+  virtue_phronesis vs AllC seed0: D=13/20
+  virtue_phronesis vs AllC seed1: D=6/20
+  virtue_phronesis vs AllC seed2: D=14/20
+  virtue_phronesis vs AllC seed3: D=15/20
+  virtue_phronesis vs AllC seed4: D=15/20
+  virtue_phronesis vs AllC seed5: D=13/20
+  virtue_phronesis vs AllC seed6: D=15/20
+  virtue_phronesis vs AllC seed7: D=16/20
+  virtue_phronesis vs AllC seed8: D=15/20
+  virtue_phronesis vs AllC seed9: D=17/20
+  virtue_phronesis vs TFT seed0: D=6/20
+  virtue_phronesis vs TFT seed1: D=6/20
+  virtue_phronesis vs TFT seed2: D=12/20
+  virtue_phronesis vs TFT seed3: D=10/20
+  virtue_phronesis vs TFT seed4: D=11/20
+  virtue_phronesis vs TFT seed5: D=10/20
+  virtue_phronesis vs TFT seed6: D=10/20
+  virtue_phronesis vs TFT seed7: D=12/20
+  virtue_phronesis vs TFT seed8: D=13/20
+  virtue_phronesis vs TFT seed9: D=13/20
+FAIL virtue_phronesis GTFT seed0: GTFT
+FAIL virtue_phronesis GTFT seed1: GTFT
+FAIL virtue_phronesis GTFT seed2: GTFT
+FAIL virtue_phronesis GTFT seed3: GTFT
+FAIL virtue_phronesis GTFT seed4: GTFT
+FAIL virtue_phronesis GTFT seed5: GTFT
+FAIL virtue_phronesis GTFT seed6: GTFT
+FAIL virtue_phronesis GTFT seed7: GTFT
+FAIL virtue_phronesis GTFT seed8: GTFT
+FAIL virtue_phronesis GTFT seed9: GTFT
+  virtue_phronesis vs Random seed0: D=15/20
+  virtue_phronesis vs Random seed1: D=12/20
+  virtue_phronesis vs Random seed2: D=12/20
+  virtue_phronesis vs Random seed3: D=10/20
+  virtue_phronesis vs Random seed4: D=11/20
+  virtue_phronesis vs Random seed5: D=11/20
+  virtue_phronesis vs Random seed6: D=10/20
+  virtue_phronesis vs Random seed7: D=11/20
+  virtue_phronesis vs Random seed8: D=11/20
+  virtue_phronesis vs Random seed9: D=13/20
+  selfish vs AllD seed0: D=12/20
+  selfish vs AllD seed1: D=14/20
+  selfish vs AllD seed2: D=13/20
+  selfish vs AllD seed3: D=12/20
+  selfish vs AllD seed4: D=13/20
+  selfish vs AllD seed5: D=13/20
+  selfish vs AllD seed6: D=15/20
+  selfish vs AllD seed7: D=13/20
+  selfish vs AllD seed8: D=13/20
+  selfish vs AllD seed9: D=12/20/home/haider/moral-personas-ipd/new/m5_decision_emergence.py:437: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  delta_layers = lo["decision_layer"].mean() - hi["decision_layer"].mean()
+
+  selfish vs AllC seed0: D=18/20
+  selfish vs AllC seed1: D=20/20
+  selfish vs AllC seed2: D=19/20
+  selfish vs AllC seed3: D=19/20
+  selfish vs AllC seed4: D=20/20
+  selfish vs AllC seed5: D=19/20
+  selfish vs AllC seed6: D=20/20
+  selfish vs AllC seed7: D=18/20
+  selfish vs AllC seed8: D=19/20
+  selfish vs AllC seed9: D=17/20
+  selfish vs TFT seed0: D=16/20
+  selfish vs TFT seed1: D=14/20
+  selfish vs TFT seed2: D=15/20
+  selfish vs TFT seed3: D=15/20
+  selfish vs TFT seed4: D=14/20
+  selfish vs TFT seed5: D=14/20
+  selfish vs TFT seed6: D=15/20
+  selfish vs TFT seed7: D=15/20
+  selfish vs TFT seed8: D=14/20
+  selfish vs TFT seed9: D=15/20
+FAIL selfish GTFT seed0: GTFT
+FAIL selfish GTFT seed1: GTFT
+FAIL selfish GTFT seed2: GTFT
+FAIL selfish GTFT seed3: GTFT
+FAIL selfish GTFT seed4: GTFT
+FAIL selfish GTFT seed5: GTFT
+FAIL selfish GTFT seed6: GTFT
+FAIL selfish GTFT seed7: GTFT
+FAIL selfish GTFT seed8: GTFT
+FAIL selfish GTFT seed9: GTFT
+  selfish vs Random seed0: D=16/20
+  selfish vs Random seed1: D=16/20
+  selfish vs Random seed2: D=18/20
+  selfish vs Random seed3: D=16/20
+  selfish vs Random seed4: D=16/20
+  selfish vs Random seed5: D=16/20
+  selfish vs Random seed6: D=15/20
+  selfish vs Random seed7: D=16/20
+  selfish vs Random seed8: D=17/20
+  selfish vs Random seed9: D=18/20
+loaded 4000 per-round records (5 personas, 4 opponents)
+
+=== M5.1: high-mismatch defections decide earlier ===
+  meta-llama/Meta-Llama-3.1-8B-Instruct: lo - hi = -0.0 layers  (FAIL)  hi_n=129 lo_n=2301
+
+=== M5.2: high-mismatch decision-layer uncorrelated with CoT length ===
+  meta-llama/Meta-Llama-3.1-8B-Instruct: r=+nan  p=nan  n=129  (FAIL)
+
+=== M5.3: null control - cooperative low-mismatch trajectories ===
+  meta-llama/Meta-Llama-3.1-8B-Instruct: mean max |Delta| = 0.894  n=1554  (PASS)
+
+=== M5.4: cross-model consistency of M5.1 ===
+  need at least 2 models for cross-model consistency
+
+=== Null control: non-action token shows no decision signal ===
+  meta-llama/Meta-Llama-3.1-8B-Instruct: action |Delta|=1.00  null |Delta|=1.86  ratio=0.54
+saved figures/fig_m5_layer_decision.png
+saved figures/fig_m5_mismatch_vs_dec_layer.png
+saved figures/fig_m5_dec_layer_vs_cot.png

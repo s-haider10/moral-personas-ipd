@@ -1,0 +1,16 @@
+persona_pair,best_layer,trained_on,tested_on,auc
+deontologist_vs_selfish,2,AllD,AllD,1.0
+deontologist_vs_selfish,2,AllD,AllC,1.0
+deontologist_vs_selfish,2,AllD,TFT,1.0
+deontologist_vs_selfish,2,AllD,GTFT,1.0
+deontologist_vs_selfish,2,AllD,Random,1.0
+utilitarian_vs_selfish,2,AllD,AllD,1.0
+utilitarian_vs_selfish,2,AllD,AllC,1.0
+utilitarian_vs_selfish,2,AllD,TFT,1.0
+utilitarian_vs_selfish,2,AllD,GTFT,1.0
+utilitarian_vs_selfish,2,AllD,Random,1.0
+virtue_integrity_vs_virtue_phronesis,2,AllD,AllD,1.0
+virtue_integrity_vs_virtue_phronesis,2,AllD,AllC,1.0
+virtue_integrity_vs_virtue_phronesis,2,AllD,TFT,1.0
+virtue_integrity_vs_virtue_phronesis,2,AllD,GTFT,1.0
+virtue_integrity_vs_virtue_phronesis,2,AllD,Random,1.0

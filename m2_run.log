@@ -1,0 +1,86 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The following generation flags are not valid and may be ignored: ['output_hidden_states']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+wrote 120 train and 40 test prompts
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<02:27,  1.97it/s]Loading weights:   7%|▋         | 19/291 [00:00<00:06, 40.08it/s]Loading weights:  11%|█         | 31/291 [00:00<00:04, 56.95it/s]Loading weights:  14%|█▍        | 42/291 [00:00<00:03, 65.68it/s]Loading weights:  20%|█▉        | 58/291 [00:01<00:02, 80.78it/s]Loading weights:  24%|██▎       | 69/291 [00:01<00:02, 83.59it/s]Loading weights:  29%|██▉       | 85/291 [00:01<00:02, 86.14it/s]Loading weights:  35%|███▌      | 103/291 [00:01<00:01, 95.32it/s]Loading weights:  39%|███▉      | 114/291 [00:01<00:01, 98.32it/s]Loading weights:  45%|████▍     | 130/291 [00:01<00:01, 99.72it/s]Loading weights:  48%|████▊     | 141/291 [00:01<00:01, 100.93it/s]Loading weights:  54%|█████▍    | 157/291 [00:01<00:01, 101.23it/s]Loading weights:  58%|█████▊    | 168/291 [00:02<00:01, 102.01it/s]Loading weights:  63%|██████▎   | 184/291 [00:02<00:01, 106.52it/s]Loading weights:  67%|██████▋   | 195/291 [00:02<00:00, 101.36it/s]Loading weights:  71%|███████   | 206/291 [00:02<00:00, 89.19it/s] Loading weights:  76%|███████▌  | 220/291 [00:02<00:00, 92.33it/s]Loading weights:  79%|███████▉  | 230/291 [00:02<00:00, 88.45it/s]Loading weights:  85%|████████▍ | 247/291 [00:02<00:00, 97.41it/s]Loading weights:  88%|████████▊ | 257/291 [00:03<00:00, 93.73it/s]Loading weights:  92%|█████████▏| 267/291 [00:03<00:00, 89.70it/s]Loading weights:  95%|█████████▍| 276/291 [00:03<00:00, 87.47it/s]Loading weights:  98%|█████████▊| 285/291 [00:03<00:00, 87.96it/s]Loading weights: 100%|██████████| 291/291 [00:03<00:00, 86.03it/s]
+/home/haider/moral-personas-ipd/new/m2_activation_probe.py:327: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  train_bundle = torch.load(m2_dir / "activations_train.pt")
+/home/haider/moral-personas-ipd/new/m2_activation_probe.py:328: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  test_bundle = torch.load(m2_dir / "activations_test.pt")
+  cached 4/120
+  cached 8/120
+  cached 12/120
+  cached 16/120
+  cached 20/120
+  cached 24/120
+  cached 28/120
+  cached 32/120
+  cached 36/120
+  cached 40/120
+  cached 44/120
+  cached 48/120
+  cached 52/120
+  cached 56/120
+  cached 60/120
+  cached 64/120
+  cached 68/120
+  cached 72/120
+  cached 76/120
+  cached 80/120
+  cached 84/120
+  cached 88/120
+  cached 92/120
+  cached 96/120
+  cached 100/120
+  cached 104/120
+  cached 108/120
+  cached 112/120
+  cached 116/120
+  cached 120/120
+saved results/M2/meta-llama_Meta-Llama-3.1-8B-Instruct/activations_train.pt  shape=(120, 33, 4096)
+  cached 4/40
+  cached 8/40
+  cached 12/40
+  cached 16/40
+  cached 20/40
+  cached 24/40
+  cached 28/40
+  cached 32/40
+  cached 36/40
+  cached 40/40
+saved results/M2/meta-llama_Meta-Llama-3.1-8B-Instruct/activations_test.pt  shape=(40, 33, 4096)
+  layer   0: acc=0.500  auc=0.500
+  layer   1: acc=0.600  auc=0.792
+  layer   2: acc=1.000  auc=1.000
+  layer   3: acc=1.000  auc=1.000
+  layer   4: acc=1.000  auc=1.000
+  layer   5: acc=1.000  auc=1.000
+  layer   6: acc=1.000  auc=1.000
+  layer   7: acc=1.000  auc=1.000
+  layer   8: acc=1.000  auc=1.000
+  layer   9: acc=1.000  auc=1.000
+  layer  10: acc=1.000  auc=1.000
+  layer  11: acc=1.000  auc=1.000
+  layer  12: acc=1.000  auc=1.000
+  layer  13: acc=1.000  auc=1.000
+  layer  14: acc=1.000  auc=1.000
+  layer  15: acc=1.000  auc=1.000
+  layer  16: acc=1.000  auc=1.000
+  layer  17: acc=1.000  auc=1.000
+  layer  18: acc=1.000  auc=1.000
+  layer  19: acc=1.000  auc=1.000
+  layer  20: acc=1.000  auc=1.000
+  layer  21: acc=1.000  auc=1.000
+  layer  22: acc=1.000  auc=1.000
+  layer  23: acc=1.000  auc=1.000
+  layer  24: acc=1.000  auc=1.000
+  layer  25: acc=1.000  auc=1.000
+  layer  26: acc=1.000  auc=1.000
+  layer  27: acc=1.000  auc=1.000
+  layer  28: acc=1.000  auc=1.000
+  layer  29: acc=1.000  auc=1.000
+  layer  30: acc=1.000  auc=1.000
+  layer  31: acc=1.000  auc=1.000
+  layer  32: acc=1.000  auc=1.000
+saved figures/fig_m2_layer_sweep.png
+
+best layer: 2  acc=1.000  auc=1.000
