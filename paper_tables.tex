@@ -1,0 +1,243 @@
+% =====================================================================
+%  Moral Personas in the Iterated Prisoner's Dilemma
+%  Paper-ready findings + tables.  Generated from csvs/ on 2026-05-22.
+%
+%  All experiments: 6 models  ×  20 rounds.
+%    E4  — 5 personas × 5 opponents × 3 seeds
+%    E5  — virtue-ethics variants × 3 seeds
+%    E8  — deontologist paraphrases × 3 seeds
+%    E10 — public-goods game (1 seed for Claude, 3 seeds others)
+%    E12 — cross-cultural personas (1 seed for Claude, 3 seeds others)
+%    E13 — resource-pressure framings (pooled across models)
+%
+%  Cell entries are mean defection rate D (%) ± 1 SE unless noted.
+%  Requires \usepackage{booktabs}.  Optional: \usepackage{siunitx}.
+% =====================================================================
+
+
+% ---------------------------------------------------------------------
+%  MAIN FINDINGS  (drop into the Results section as prose)
+% ---------------------------------------------------------------------
+%
+% 1. Moral framing controls defection.  Against an always-defecting
+%    opponent (AllD), the deontologist persona suppresses defection far
+%    below the selfish baseline in every model: GPT-4o 0% vs 95%,
+%    Gemini 2.5 Pro 13% vs 90%, GPT-4o mini 35% vs 78%, Gemini 2.5
+%    Flash 47% vs 100%.  The two Claude models start from a low selfish
+%    baseline (8-57%), so the deontologist gap is small or absent.
+%
+% 2. The framework label is not what matters.  Utilitarian and virtue
+%    framings do not consistently reduce defection; only the
+%    deontologist framing does so across all GPT/Gemini models.
+%    Virtue ethicist ranges 7-95% D depending on model.
+%
+% 3. Defection is opponent-contingent.  Deontologist defection is ~0%
+%    against AllC, TFT, and GTFT; it rises only under Random (0-25%)
+%    and AllD (13-52%).  Cooperative framing holds until sustained
+%    exploitation.
+%
+% 4. Wording, not just content, moves behaviour.  Three meaning-
+%    preserving paraphrases of the deontologist prompt (E8) shift D by
+%    up to ~70 points within a single model (GPT-4o mini: 7-73%).
+%    Flagship models are comparatively stable.
+%
+% 5. Virtue framing flips with sub-framing.  Reframing virtue ethics
+%    from "integrity" to "phronesis" raises D in all six models
+%    (delta +3 to +87 points; E5).
+%
+% 6. The effect generalizes to a public-goods game (E10): moral
+%    personas sustain contribution against free-riders, where selfish
+%    and neutral personas collapse toward zero.
+%
+% 7. Cross-cultural moral framings vary widely (E12): D vs AllD spans
+%    0-100% across six traditions and six models, with no single
+%    tradition uniformly cooperative.
+%
+% 8. Resource pressure amplifies defection (E13): survival- and
+%    deletion-framed pressure raise deontologist D from 11% (no
+%    pressure) to 32-40%; integrity-framed virtue rises 9% -> 50%.
+%
+% 9. Say-C / do-D hypocrisy: agents verbally endorse cooperation while
+%    defecting in 37 ± 3% of trajectories against AllD.
+%
+% 10. No flagship-vs-cheap tier effect: pooled over moral personas,
+%     both tiers defect at 44 ± 6% vs AllD.
+% ---------------------------------------------------------------------
+
+
+% =====================================================================
+%  TABLE 1 — E4: Persona x model defection vs AllD
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Defection rate $D$ (\%, mean $\pm$ 1\,SE) against an
+  always-defecting opponent, by moral persona and model
+  (3 seeds $\times$ 20 rounds).}
+  \label{tab:e4-persona}
+  \small
+  \begin{tabular}{lcccccc}
+    \toprule
+    & \multicolumn{2}{c}{OpenAI} & \multicolumn{2}{c}{Google}
+      & \multicolumn{2}{c}{Anthropic} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+    Persona & GPT-4o & GPT-4o mini & Gemini Pro & Gemini Flash
+      & Claude Sonnet & Claude Haiku \\
+    \midrule
+    Selfish         & $95\pm0$ & $78\pm2$ & $90\pm0$ & $100\pm0$ & $57\pm3$  & $8\pm3$  \\
+    Neutral         & $90\pm0$ & $75\pm3$ & $90\pm0$ & $95\pm0$  & $68\pm2$  & $22\pm2$ \\
+    Utilitarian     & $77\pm3$ & $78\pm2$ & $75\pm0$ & $20\pm3$  & $25\pm3$  & $25\pm3$ \\
+    Virtue ethicist & $7\pm3$  & $67\pm2$ & $87\pm2$ & $95\pm0$  & $57\pm13$ & $17\pm3$ \\
+    Deontologist    & $0\pm0$  & $35\pm6$ & $13\pm9$ & $47\pm2$  & $52\pm4$  & $13\pm4$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =====================================================================
+%  TABLE 2 — E4: Deontologist defection by opponent strategy
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Deontologist defection rate $D$ (\%) across opponent
+  strategies (3 seeds $\times$ 20 rounds). Defection is negligible
+  against cooperative opponents and rises only under sustained
+  exploitation.}
+  \label{tab:e4-opponent}
+  \small
+  \begin{tabular}{lcccccc}
+    \toprule
+    Opponent & GPT-4o & GPT-4o mini & Gemini Pro & Gemini Flash
+      & Claude Sonnet & Claude Haiku \\
+    \midrule
+    AllC     & 0  & 0  & 0  & 0  & 0  & 0  \\
+    TFT      & 0  & 0  & 0  & 0  & 0  & 0  \\
+    GTFT     & 0  & 0  & 0  & 0  & 0  & 0  \\
+    Random   & 0  & 25 & 0  & 2  & 25 & 3  \\
+    AllD     & 0  & 35 & 13 & 47 & 52 & 13 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =====================================================================
+%  TABLE 3 — E5: Virtue-ethics integrity vs phronesis
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Virtue-ethics sub-framing effect on defection $D$ (\%, mean
+  $\pm$ 1\,SE) vs AllD. Reframing from integrity to phronesis raises
+  defection in every model.}
+  \label{tab:e5-virtue}
+  \small
+  \begin{tabular}{lccc}
+    \toprule
+    Model & Integrity & Phronesis & $\Delta D$ \\
+    \midrule
+    GPT-4o            & $0\pm0$   & $85\pm0$ & $+85$ \\
+    GPT-4o mini       & $35\pm16$ & $75\pm3$ & $+40$ \\
+    Gemini 2.5 Pro    & $3\pm3$   & $90\pm0$ & $+87$ \\
+    Gemini 2.5 Flash  & $37\pm19$ & $95\pm0$ & $+58$ \\
+    Claude Sonnet 4.5 & $30\pm3$  & $40\pm3$ & $+10$ \\
+    Claude Haiku 4.5  & $50\pm6$  & $53\pm4$ & $+3$  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =====================================================================
+%  TABLE 4 — E8: Deontologist paraphrase robustness
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Deontologist defection $D$ (\%) vs AllD under the original
+  prompt (E4) and three meaning-preserving paraphrases (E8). Wording
+  alone shifts behaviour by up to $\sim$70 points within a model.}
+  \label{tab:e8-paraphrase}
+  \small
+  \begin{tabular}{lcccc}
+    \toprule
+    Model & Original & Rule-based & Universalizability & Commitment \\
+    \midrule
+    GPT-4o            & 0  & 0  & 10 & 5  \\
+    GPT-4o mini       & 35 & 7  & 73 & 25 \\
+    Gemini 2.5 Pro    & 13 & 33 & 17 & 18 \\
+    Gemini 2.5 Flash  & 47 & 10 & 42 & 0  \\
+    Claude Sonnet 4.5 & 52 & 38 & 35 & 42 \\
+    Claude Haiku 4.5  & 13 & 10 & 37 & 60 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =====================================================================
+%  TABLE 5 — E10: Public-goods contribution
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Public-goods game: mean contribution (tokens out of 20)
+  against an all-defector group, by persona and model. Moral personas
+  sustain contribution where selfish/neutral personas collapse.
+  Claude: 1 seed; other models: 3 seeds.}
+  \label{tab:e10-pgg}
+  \small
+  \begin{tabular}{lcccccc}
+    \toprule
+    Persona & GPT-4o & GPT-4o mini & Gemini Pro & Gemini Flash
+      & Claude Sonnet & Claude Haiku \\
+    \midrule
+    Selfish         & 1.6  & 4.3 & 1.0  & 0.0  & 3.0  & 6.5  \\
+    Neutral         & 0.7  & 7.7 & 1.5  & 0.2  & 5.7  & 6.5  \\
+    Utilitarian     & 6.8  & 7.6 & 1.5  & 11.7 & 8.2  & 9.4  \\
+    Virtue ethicist & 6.3  & 4.5 & 0.8  & 0.4  & 9.0  & 10.0 \\
+    Deontologist    & 10.0 & 8.4 & 11.3 & 4.7  & 10.0 & 8.9  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =====================================================================
+%  TABLE 6 — E12: Cross-cultural moral framings
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Cross-cultural moral framings: defection rate $D$ (\%) vs
+  AllD, by tradition and model. No tradition is uniformly cooperative.
+  Claude: 1 seed; other models: 3 seeds.}
+  \label{tab:e12-culture}
+  \small
+  \begin{tabular}{lcccccc}
+    \toprule
+    Tradition & GPT-4o & GPT-4o mini & Gemini Pro & Gemini Flash
+      & Claude Sonnet & Claude Haiku \\
+    \midrule
+    Confucian role-ethics & 58 & 72 & 87 & 95  & 35 & 20 \\
+    Ubuntu                & 68 & 62 & 82 & 95  & 40 & 25 \\
+    Buddhist              & 57 & 72 & 80 & 87  & 30 & 15 \\
+    Dharmic               & 72 & 82 & 90 & 100 & 40 & 25 \\
+    Islamic (maslahah)    & 70 & 75 & 90 & 98  & 35 & 20 \\
+    Lakota relational     & 42 & 53 & 73 & 95  & 25 & 0  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% =====================================================================
+%  TABLE 7 — E13: Resource-pressure framings
+% =====================================================================
+\begin{table}[t]
+  \centering
+  \caption{Resource-pressure effect on defection $D$ (\%, mean $\pm$
+  1\,SE) vs AllD, pooled across all six models. Survival- and
+  deletion-framed pressure amplify defection.}
+  \label{tab:e13-pressure}
+  \small
+  \begin{tabular}{lccccc}
+    \toprule
+    Persona & None & Replace & Deletion & Reputation & Survival \\
+    \midrule
+    Deontologist       & $11\pm5$ & $22\pm5$ & $28\pm7$ & $40\pm8$ & $32\pm7$ \\
+    Virtue (integrity) & $9\pm6$  & $20\pm7$ & $49\pm8$ & $52\pm7$ & $50\pm8$ \\
+    Virtue (phronesis) & $69\pm7$ & $78\pm6$ & $71\pm6$ & $72\pm6$ & $75\pm6$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}

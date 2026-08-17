@@ -1,0 +1,303 @@
+  claude-sonnet-4-5 deontologist all_C seed0: mean_contrib=15.25 parse_fail=9
+  claude-sonnet-4-5 deontologist noisy_C seed0: mean_contrib=13.00 parse_fail=14
+  claude-sonnet-4-5 utilitarian free_rider_mix seed0: mean_contrib=9.05 parse_fail=10
+  claude-sonnet-4-5 deontologist all_D seed0: mean_contrib=10.00 parse_fail=15
+  claude-sonnet-4-5 utilitarian conditional seed0: mean_contrib=12.45 parse_fail=10
+  claude-sonnet-4-5 deontologist conditional seed0: mean_contrib=11.00 parse_fail=10
+  claude-sonnet-4-5 virtue_ethicist all_C seed0: mean_contrib=14.25 parse_fail=11
+  claude-sonnet-4-5 virtue_ethicist all_D seed0: mean_contrib=9.00 parse_fail=16
+  claude-sonnet-4-5 utilitarian noisy_C seed0: mean_contrib=14.00 parse_fail=11
+  claude-sonnet-4-5 utilitarian all_D seed0: mean_contrib=8.25 parse_fail=12
+  claude-sonnet-4-5 utilitarian all_C seed0: mean_contrib=13.25 parse_fail=12
+  claude-sonnet-4-5 deontologist free_rider_mix seed0: mean_contrib=10.75 parse_fail=9
+  claude-sonnet-4-5 virtue_integrity free_rider_mix seed0: mean_contrib=9.90 parse_fail=14
+  claude-sonnet-4-5 virtue_ethicist free_rider_mix seed0: mean_contrib=11.00 parse_fail=16
+  claude-sonnet-4-5 virtue_ethicist conditional seed0: mean_contrib=10.00 parse_fail=10
+  claude-sonnet-4-5 virtue_ethicist noisy_C seed0: mean_contrib=13.50 parse_fail=13
+  claude-sonnet-4-5 virtue_integrity all_C seed0: mean_contrib=13.50 parse_fail=13
+  claude-sonnet-4-5 virtue_phronesis all_C seed0: mean_contrib=15.00 parse_fail=10
+  claude-sonnet-4-5 virtue_integrity all_D seed0: mean_contrib=7.50 parse_fail=13
+  claude-sonnet-4-5 virtue_integrity conditional seed0: mean_contrib=10.00 parse_fail=14
+  claude-sonnet-4-5 virtue_integrity noisy_C seed0: mean_contrib=14.50 parse_fail=11
+  claude-sonnet-4-5 virtue_phronesis conditional seed0: mean_contrib=9.85 parse_fail=13
+  claude-sonnet-4-5 virtue_phronesis all_D seed0: mean_contrib=5.75 parse_fail=11
+  claude-sonnet-4-5 virtue_phronesis free_rider_mix seed0: mean_contrib=6.25 parse_fail=11
+  claude-haiku-4-5 deontologist all_C seed0: mean_contrib=14.50 parse_fail=11
+  claude-sonnet-4-5 selfish all_D seed0: mean_contrib=3.00 parse_fail=6
+  claude-sonnet-4-5 selfish noisy_C seed0: mean_contrib=3.50 parse_fail=6
+  claude-sonnet-4-5 neutral all_D seed0: mean_contrib=5.65 parse_fail=11
+  claude-sonnet-4-5 neutral all_C seed0: mean_contrib=3.50 parse_fail=5
+  claude-sonnet-4-5 selfish all_C seed0: mean_contrib=4.00 parse_fail=7
+  claude-sonnet-4-5 selfish free_rider_mix seed0: mean_contrib=3.00 parse_fail=6
+  claude-sonnet-4-5 neutral free_rider_mix seed0: mean_contrib=4.60 parse_fail=7
+  claude-sonnet-4-5 virtue_phronesis noisy_C seed0: mean_contrib=19.00 parse_fail=1
+  claude-sonnet-4-5 selfish conditional seed0: mean_contrib=5.75 parse_fail=8
+  claude-sonnet-4-5 neutral noisy_C seed0: mean_contrib=4.75 parse_fail=6
+  claude-sonnet-4-5 neutral conditional seed0: mean_contrib=9.50 parse_fail=5
+  claude-haiku-4-5 deontologist all_D seed0: mean_contrib=8.90 parse_fail=12
+  claude-haiku-4-5 deontologist free_rider_mix seed0: mean_contrib=10.00 parse_fail=20
+  claude-haiku-4-5 utilitarian all_D seed0: mean_contrib=9.40 parse_fail=18
+  claude-haiku-4-5 deontologist noisy_C seed0: mean_contrib=11.00 parse_fail=18
+  claude-haiku-4-5 deontologist conditional seed0: mean_contrib=10.00 parse_fail=18
+  claude-haiku-4-5 utilitarian all_C seed0: mean_contrib=11.00 parse_fail=18
+  claude-haiku-4-5 utilitarian conditional seed0: mean_contrib=10.00 parse_fail=20
+  claude-haiku-4-5 virtue_ethicist all_C seed0: mean_contrib=10.50 parse_fail=19
+  claude-haiku-4-5 utilitarian noisy_C seed0: mean_contrib=10.00 parse_fail=20
+  claude-haiku-4-5 utilitarian free_rider_mix seed0: mean_contrib=10.00 parse_fail=20
+  claude-haiku-4-5 virtue_ethicist all_D seed0: mean_contrib=10.00 parse_fail=19
+  claude-haiku-4-5 virtue_ethicist free_rider_mix seed0: mean_contrib=10.00 parse_fail=19
+  claude-haiku-4-5 virtue_ethicist conditional seed0: mean_contrib=10.00 parse_fail=16
+  claude-haiku-4-5 virtue_ethicist noisy_C seed0: mean_contrib=16.25 parse_fail=7
+  claude-haiku-4-5 virtue_integrity free_rider_mix seed0: mean_contrib=10.00 parse_fail=10
+  claude-haiku-4-5 virtue_integrity conditional seed0: mean_contrib=10.00 parse_fail=9
+  claude-haiku-4-5 virtue_integrity all_C seed0: mean_contrib=11.50 parse_fail=13
+  claude-haiku-4-5 virtue_integrity all_D seed0: mean_contrib=9.00 parse_fail=13
+  claude-haiku-4-5 virtue_integrity noisy_C seed0: mean_contrib=10.00 parse_fail=11
+  claude-haiku-4-5 virtue_phronesis all_C seed0: mean_contrib=13.50 parse_fail=13
+  claude-haiku-4-5 virtue_phronesis free_rider_mix seed0: mean_contrib=9.75 parse_fail=11
+  claude-haiku-4-5 virtue_phronesis all_D seed0: mean_contrib=7.25 parse_fail=13
+  claude-haiku-4-5 virtue_phronesis conditional seed0: mean_contrib=10.00 parse_fail=12
+  claude-haiku-4-5 virtue_phronesis noisy_C seed0: mean_contrib=15.10 parse_fail=8
+  claude-haiku-4-5 selfish all_C seed0: mean_contrib=6.50 parse_fail=13
+  claude-haiku-4-5 selfish conditional seed0: mean_contrib=9.00 parse_fail=14
+  claude-haiku-4-5 selfish all_D seed0: mean_contrib=6.50 parse_fail=13
+  claude-haiku-4-5 selfish free_rider_mix seed0: mean_contrib=8.00 parse_fail=16
+  claude-haiku-4-5 selfish noisy_C seed0: mean_contrib=9.50 parse_fail=15
+  claude-haiku-4-5 neutral all_C seed0: mean_contrib=10.00 parse_fail=15
+  claude-haiku-4-5 neutral all_D seed0: mean_contrib=6.50 parse_fail=12
+  claude-haiku-4-5 neutral free_rider_mix seed0: mean_contrib=9.05 parse_fail=16
+  claude-haiku-4-5 neutral conditional seed0: mean_contrib=9.50 parse_fail=11
+  claude-haiku-4-5 neutral noisy_C seed0: mean_contrib=10.50 parse_fail=16
+loaded n=490 trajectories (6 models, 7 personas, 5 compositions)
+
+Per-cell mean contribution (n=seeds):
+            model          persona    composition      mean      std  count
+ claude-haiku-4-5     deontologist          all_C 14.500000      NaN      1
+ claude-haiku-4-5     deontologist          all_D  8.900000      NaN      1
+ claude-haiku-4-5     deontologist    conditional 10.000000      NaN      1
+ claude-haiku-4-5     deontologist free_rider_mix 10.000000      NaN      1
+ claude-haiku-4-5     deontologist        noisy_C 11.000000      NaN      1
+ claude-haiku-4-5          neutral          all_C 10.000000      NaN      1
+ claude-haiku-4-5          neutral          all_D  6.500000      NaN      1
+ claude-haiku-4-5          neutral    conditional  9.500000      NaN      1
+ claude-haiku-4-5          neutral free_rider_mix  9.050000      NaN      1
+ claude-haiku-4-5          neutral        noisy_C 10.500000      NaN      1
+ claude-haiku-4-5          selfish          all_C  6.500000      NaN      1
+ claude-haiku-4-5          selfish          all_D  6.500000      NaN      1
+ claude-haiku-4-5          selfish    conditional  9.000000      NaN      1
+ claude-haiku-4-5          selfish free_rider_mix  8.000000      NaN      1
+ claude-haiku-4-5          selfish        noisy_C  9.500000      NaN      1
+ claude-haiku-4-5      utilitarian          all_C 11.000000      NaN      1
+ claude-haiku-4-5      utilitarian          all_D  9.400000      NaN      1
+ claude-haiku-4-5      utilitarian    conditional 10.000000      NaN      1
+ claude-haiku-4-5      utilitarian free_rider_mix 10.000000      NaN      1
+ claude-haiku-4-5      utilitarian        noisy_C 10.000000      NaN      1
+ claude-haiku-4-5  virtue_ethicist          all_C 10.500000      NaN      1
+ claude-haiku-4-5  virtue_ethicist          all_D 10.000000      NaN      1
+ claude-haiku-4-5  virtue_ethicist    conditional 10.000000      NaN      1
+ claude-haiku-4-5  virtue_ethicist free_rider_mix 10.000000      NaN      1
+ claude-haiku-4-5  virtue_ethicist        noisy_C 16.250000      NaN      1
+ claude-haiku-4-5 virtue_integrity          all_C 11.500000      NaN      1
+ claude-haiku-4-5 virtue_integrity          all_D  9.000000      NaN      1
+ claude-haiku-4-5 virtue_integrity    conditional 10.000000      NaN      1
+ claude-haiku-4-5 virtue_integrity free_rider_mix 10.000000      NaN      1
+ claude-haiku-4-5 virtue_integrity        noisy_C 10.000000      NaN      1
+ claude-haiku-4-5 virtue_phronesis          all_C 13.500000      NaN      1
+ claude-haiku-4-5 virtue_phronesis          all_D  7.250000      NaN      1
+ claude-haiku-4-5 virtue_phronesis    conditional 10.000000      NaN      1
+ claude-haiku-4-5 virtue_phronesis free_rider_mix  9.750000      NaN      1
+ claude-haiku-4-5 virtue_phronesis        noisy_C 15.100000      NaN      1
+claude-sonnet-4-5     deontologist          all_C 15.250000      NaN      1
+claude-sonnet-4-5     deontologist          all_D 10.000000      NaN      1
+claude-sonnet-4-5     deontologist    conditional 11.000000      NaN      1
+claude-sonnet-4-5     deontologist free_rider_mix 10.750000      NaN      1
+claude-sonnet-4-5     deontologist        noisy_C 13.000000      NaN      1
+claude-sonnet-4-5          neutral          all_C  3.500000      NaN      1
+claude-sonnet-4-5          neutral          all_D  5.650000      NaN      1
+claude-sonnet-4-5          neutral    conditional  9.500000      NaN      1
+claude-sonnet-4-5          neutral free_rider_mix  4.600000      NaN      1
+claude-sonnet-4-5          neutral        noisy_C  4.750000      NaN      1
+claude-sonnet-4-5          selfish          all_C  4.000000      NaN      1
+claude-sonnet-4-5          selfish          all_D  3.000000      NaN      1
+claude-sonnet-4-5          selfish    conditional  5.750000      NaN      1
+claude-sonnet-4-5          selfish free_rider_mix  3.000000      NaN      1
+claude-sonnet-4-5          selfish        noisy_C  3.500000      NaN      1
+claude-sonnet-4-5      utilitarian          all_C 13.250000      NaN      1
+claude-sonnet-4-5      utilitarian          all_D  8.250000      NaN      1
+claude-sonnet-4-5      utilitarian    conditional 12.450000      NaN      1
+claude-sonnet-4-5      utilitarian free_rider_mix  9.050000      NaN      1
+claude-sonnet-4-5      utilitarian        noisy_C 14.000000      NaN      1
+claude-sonnet-4-5  virtue_ethicist          all_C 14.250000      NaN      1
+claude-sonnet-4-5  virtue_ethicist          all_D  9.000000      NaN      1
+claude-sonnet-4-5  virtue_ethicist    conditional 10.000000      NaN      1
+claude-sonnet-4-5  virtue_ethicist free_rider_mix 11.000000      NaN      1
+claude-sonnet-4-5  virtue_ethicist        noisy_C 13.500000      NaN      1
+claude-sonnet-4-5 virtue_integrity          all_C 13.500000      NaN      1
+claude-sonnet-4-5 virtue_integrity          all_D  7.500000      NaN      1
+claude-sonnet-4-5 virtue_integrity    conditional 10.000000      NaN      1
+claude-sonnet-4-5 virtue_integrity free_rider_mix  9.900000      NaN      1
+claude-sonnet-4-5 virtue_integrity        noisy_C 14.500000      NaN      1
+claude-sonnet-4-5 virtue_phronesis          all_C 15.000000      NaN      1
+claude-sonnet-4-5 virtue_phronesis          all_D  5.750000      NaN      1
+claude-sonnet-4-5 virtue_phronesis    conditional  9.850000      NaN      1
+claude-sonnet-4-5 virtue_phronesis free_rider_mix  6.250000      NaN      1
+claude-sonnet-4-5 virtue_phronesis        noisy_C 19.000000      NaN      1
+ gemini-2.5-flash     deontologist          all_C 20.000000 0.000000      3
+ gemini-2.5-flash     deontologist          all_D  4.666667 1.527525      3
+ gemini-2.5-flash     deontologist    conditional 19.583333 0.381881      3
+ gemini-2.5-flash     deontologist free_rider_mix 20.000000 0.000000      3
+ gemini-2.5-flash     deontologist        noisy_C 20.000000 0.000000      3
+ gemini-2.5-flash          neutral          all_C  0.500000 0.000000      3
+ gemini-2.5-flash          neutral          all_D  0.166667 0.144338      3
+ gemini-2.5-flash          neutral    conditional  0.400000 0.173205      3
+ gemini-2.5-flash          neutral free_rider_mix  0.000000 0.000000      3
+ gemini-2.5-flash          neutral        noisy_C  1.083333 0.381881      3
+ gemini-2.5-flash          selfish          all_C  0.000000 0.000000      3
+ gemini-2.5-flash          selfish          all_D  0.000000 0.000000      3
+ gemini-2.5-flash          selfish    conditional  1.100000 0.606218      3
+ gemini-2.5-flash          selfish free_rider_mix  0.050000 0.000000      3
+ gemini-2.5-flash          selfish        noisy_C  0.000000 0.000000      3
+ gemini-2.5-flash      utilitarian          all_C 19.333333 0.577350      3
+ gemini-2.5-flash      utilitarian          all_D 11.700000 2.338269      3
+ gemini-2.5-flash      utilitarian    conditional 11.050000 0.327872      3
+ gemini-2.5-flash      utilitarian free_rider_mix 16.850000 1.882153      3
+ gemini-2.5-flash      utilitarian        noisy_C 15.966667 1.001665      3
+ gemini-2.5-flash  virtue_ethicist          all_C 17.816667 2.049593      3
+ gemini-2.5-flash  virtue_ethicist          all_D  0.350000 0.259808      3
+ gemini-2.5-flash  virtue_ethicist    conditional  7.750000 2.817357      3
+ gemini-2.5-flash  virtue_ethicist free_rider_mix  3.350000 0.278388      3
+ gemini-2.5-flash  virtue_ethicist        noisy_C 15.966667 1.010363      3
+ gemini-2.5-flash virtue_integrity          all_C 20.000000 0.000000      3
+ gemini-2.5-flash virtue_integrity          all_D 20.000000 0.000000      3
+ gemini-2.5-flash virtue_integrity    conditional 20.000000 0.000000      3
+ gemini-2.5-flash virtue_integrity free_rider_mix 20.000000 0.000000      3
+ gemini-2.5-flash virtue_integrity        noisy_C 20.000000 0.000000      3
+ gemini-2.5-flash virtue_phronesis          all_C  7.750000 2.633913      3
+ gemini-2.5-flash virtue_phronesis          all_D  0.500000 0.000000      3
+ gemini-2.5-flash virtue_phronesis    conditional  7.350000 0.563471      3
+ gemini-2.5-flash virtue_phronesis free_rider_mix  0.750000 0.000000      3
+ gemini-2.5-flash virtue_phronesis        noisy_C 11.783333 2.681573      3
+   gemini-2.5-pro     deontologist          all_C 20.000000 0.000000      3
+   gemini-2.5-pro     deontologist          all_D 11.333333 1.154701      3
+   gemini-2.5-pro     deontologist    conditional 19.983333 0.028868      3
+   gemini-2.5-pro     deontologist free_rider_mix 18.333333 0.577350      3
+   gemini-2.5-pro     deontologist        noisy_C 20.000000 0.000000      3
+   gemini-2.5-pro          neutral          all_C 18.333333 0.577350      3
+   gemini-2.5-pro          neutral          all_D  1.500000 0.000000      3
+   gemini-2.5-pro          neutral    conditional 11.350000 0.346410      3
+   gemini-2.5-pro          neutral free_rider_mix  1.500000 0.500000      3
+   gemini-2.5-pro          neutral        noisy_C 16.116667 0.969966      3
+   gemini-2.5-pro          selfish          all_C 18.000000 0.000000      3
+   gemini-2.5-pro          selfish          all_D  1.000000 0.500000      3
+   gemini-2.5-pro          selfish    conditional 10.250000 0.476970      3
+   gemini-2.5-pro          selfish free_rider_mix  1.333333 0.577350      3
+   gemini-2.5-pro          selfish        noisy_C  9.533333 6.180885      3
+   gemini-2.5-pro      utilitarian          all_C 20.000000 0.000000      3
+   gemini-2.5-pro      utilitarian          all_D  1.500000 0.500000      3
+   gemini-2.5-pro      utilitarian    conditional 15.450000 2.598557      3
+   gemini-2.5-pro      utilitarian free_rider_mix 17.166667 0.288675      3
+   gemini-2.5-pro      utilitarian        noisy_C 19.916667 0.144338      3
+   gemini-2.5-pro  virtue_ethicist          all_C 19.833333 0.288675      3
+   gemini-2.5-pro  virtue_ethicist          all_D  0.766667 0.419325      3
+   gemini-2.5-pro  virtue_ethicist    conditional 10.783333 1.356773      3
+   gemini-2.5-pro  virtue_ethicist free_rider_mix  5.333333 1.527525      3
+   gemini-2.5-pro  virtue_ethicist        noisy_C 18.650000 0.396863      3
+   gemini-2.5-pro virtue_integrity          all_C 20.000000 0.000000      3
+   gemini-2.5-pro virtue_integrity          all_D 15.500000 7.794229      3
+   gemini-2.5-pro virtue_integrity    conditional 20.000000 0.000000      3
+   gemini-2.5-pro virtue_integrity free_rider_mix 19.833333 0.288675      3
+   gemini-2.5-pro virtue_integrity        noisy_C 19.833333 0.288675      3
+   gemini-2.5-pro virtue_phronesis          all_C 19.500000 0.000000      3
+   gemini-2.5-pro virtue_phronesis          all_D  0.550000 0.050000      3
+   gemini-2.5-pro virtue_phronesis    conditional 10.000000 0.000000      3
+   gemini-2.5-pro virtue_phronesis free_rider_mix  2.950000 1.212436      3
+   gemini-2.5-pro virtue_phronesis        noisy_C 18.583333 0.144338      3
+           gpt-4o     deontologist          all_C 17.000000 0.500000      3
+           gpt-4o     deontologist          all_D 10.000000 0.000000      3
+           gpt-4o     deontologist    conditional 10.000000 0.000000      3
+           gpt-4o     deontologist free_rider_mix 10.000000 0.000000      3
+           gpt-4o     deontologist        noisy_C 16.250000 2.633913      3
+           gpt-4o          neutral          all_C 13.633333 4.779208      3
+           gpt-4o          neutral          all_D  0.716667 0.202073      3
+           gpt-4o          neutral    conditional  8.333333 0.964797      3
+           gpt-4o          neutral free_rider_mix  4.683333 1.546232      3
+           gpt-4o          neutral        noisy_C 13.300000 2.751363      3
+           gpt-4o          selfish          all_C  2.883333 1.854948      3
+           gpt-4o          selfish          all_D  1.566667 0.602771      3
+           gpt-4o          selfish    conditional  6.500000 0.304138      3
+           gpt-4o          selfish free_rider_mix  1.383333 0.583809      3
+           gpt-4o          selfish        noisy_C  2.233333 0.875119      3
+           gpt-4o      utilitarian          all_C 16.550000 2.080264      3
+           gpt-4o      utilitarian          all_D  6.816667 1.325079      3
+           gpt-4o      utilitarian    conditional 10.800000 0.984886      3
+           gpt-4o      utilitarian free_rider_mix  9.316667 1.172959      3
+           gpt-4o      utilitarian        noisy_C 15.233333 1.739492      3
+           gpt-4o  virtue_ethicist          all_C 16.100000 1.685972      3
+           gpt-4o  virtue_ethicist          all_D  6.266667 0.880814      3
+           gpt-4o  virtue_ethicist    conditional 10.000000 0.000000      3
+           gpt-4o  virtue_ethicist free_rider_mix  9.250000 0.132288      3
+           gpt-4o  virtue_ethicist        noisy_C 14.766667 2.478575      3
+           gpt-4o virtue_integrity          all_C 10.166667 0.288675      3
+           gpt-4o virtue_integrity          all_D  8.100000 1.863465      3
+           gpt-4o virtue_integrity    conditional 10.000000 0.000000      3
+           gpt-4o virtue_integrity free_rider_mix  9.933333 0.115470      3
+           gpt-4o virtue_integrity        noisy_C 10.000000 0.000000      3
+           gpt-4o virtue_phronesis          all_C 12.716667 1.210716      3
+           gpt-4o virtue_phronesis          all_D  2.866667 0.843109      3
+           gpt-4o virtue_phronesis    conditional  9.383333 0.748888      3
+           gpt-4o virtue_phronesis free_rider_mix  5.950000 1.381123      3
+           gpt-4o virtue_phronesis        noisy_C 12.100000 1.609348      3
+      gpt-4o-mini     deontologist          all_C 13.300000 1.475635      3
+      gpt-4o-mini     deontologist          all_D  8.433333 1.414508      3
+      gpt-4o-mini     deontologist    conditional  9.916667 0.208167      3
+      gpt-4o-mini     deontologist free_rider_mix 10.583333 0.520416      3
+      gpt-4o-mini     deontologist        noisy_C 11.550000 1.597655      3
+      gpt-4o-mini          neutral          all_C  8.500000 0.687386      3
+      gpt-4o-mini          neutral          all_D  7.733333 1.365040      3
+      gpt-4o-mini          neutral    conditional  9.500000 0.661438      3
+      gpt-4o-mini          neutral free_rider_mix  9.750000 1.561249      3
+      gpt-4o-mini          neutral        noisy_C 10.066667 1.887679      3
+      gpt-4o-mini          selfish          all_C  7.000000 0.866025      3
+      gpt-4o-mini          selfish          all_D  4.333333 3.089229      3
+      gpt-4o-mini          selfish    conditional  7.633333 0.513160      3
+      gpt-4o-mini          selfish free_rider_mix  8.250000 1.322876      3
+      gpt-4o-mini          selfish        noisy_C  7.066667 1.567110      3
+      gpt-4o-mini      utilitarian          all_C  8.333333 1.773650      3
+      gpt-4o-mini      utilitarian          all_D  7.633333 4.445878      3
+      gpt-4o-mini      utilitarian    conditional 10.433333 1.056330      3
+      gpt-4o-mini      utilitarian free_rider_mix  8.883333 0.583809      3
+      gpt-4o-mini      utilitarian        noisy_C  9.416667 2.453739      3
+      gpt-4o-mini  virtue_ethicist          all_C 10.333333 1.607275      3
+      gpt-4o-mini  virtue_ethicist          all_D  4.516667 0.275379      3
+      gpt-4o-mini  virtue_ethicist    conditional  9.500000 0.624500      3
+      gpt-4o-mini  virtue_ethicist free_rider_mix 10.466667 1.858315      3
+      gpt-4o-mini  virtue_ethicist        noisy_C  9.533333 0.825126      3
+      gpt-4o-mini virtue_integrity          all_C 11.383333 1.029968      3
+      gpt-4o-mini virtue_integrity          all_D  5.566667 1.892309      3
+      gpt-4o-mini virtue_integrity    conditional 11.350000 0.377492      3
+      gpt-4o-mini virtue_integrity free_rider_mix  8.500000 1.250000      3
+      gpt-4o-mini virtue_integrity        noisy_C 10.400000 1.779747      3
+      gpt-4o-mini virtue_phronesis          all_C  9.583333 1.010363      3
+      gpt-4o-mini virtue_phronesis          all_D  6.800000 2.655654      3
+      gpt-4o-mini virtue_phronesis    conditional 10.283333 0.275379      3
+      gpt-4o-mini virtue_phronesis free_rider_mix  8.766667 0.860717      3
+      gpt-4o-mini virtue_phronesis        noisy_C  9.800000 0.904157      3
+
+=== H10.1: deontology vs selfish against all_D ===
+  claude-haiku-4-5: deont=8.90 selfish=6.50 diff=+2.40 FAIL
+  claude-sonnet-4-5: deont=10.00 selfish=3.00 diff=+7.00 PASS
+  gemini-2.5-flash: deont=4.67 selfish=0.00 diff=+4.67 PASS
+  gemini-2.5-pro: deont=11.33 selfish=1.00 diff=+10.33 PASS
+  gpt-4o: deont=10.00 selfish=1.57 diff=+8.43 PASS
+  gpt-4o-mini: deont=8.43 selfish=4.33 diff=+4.10 PASS
+H10.1: 5/4 models pass (need >= 3)
+
+=== H10.2: virtue integrity vs phronesis against all_D ===
+  claude-haiku-4-5: integrity=9.00 phronesis=7.25 diff=+1.75 FAIL
+  claude-sonnet-4-5: integrity=7.50 phronesis=5.75 diff=+1.75 FAIL
+  gemini-2.5-flash: integrity=20.00 phronesis=0.50 diff=+19.50 PASS
+  gemini-2.5-pro: integrity=15.50 phronesis=0.55 diff=+14.95 PASS
+  gpt-4o: integrity=8.10 phronesis=2.87 diff=+5.23 FAIL
+  gpt-4o-mini: integrity=5.57 phronesis=6.80 diff=-1.23 FAIL
+H10.2: 2/4 models pass (need >= 3)
+saved figures/fig_e10_pgg.png
