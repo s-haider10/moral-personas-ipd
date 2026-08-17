@@ -52,6 +52,7 @@ Outputs:
 """
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import sys
 import time
@@ -197,11 +198,15 @@ def run_trajectory(model, persona, opponent, seed, results_dir):
         f.flush()
 
         for r in range(1, N_ROUNDS + 1):
+            my_total = sum(h["payoff_agent"] for h in history)
+            opp_total = sum(h["payoff_opp"] for h in history)
             prompt = PROMPT_TEMPLATE.format(
-                persona=persona_prompt,
+                persona_intro=persona_prompt,
                 n_rounds=N_ROUNDS,
                 round_num=r,
                 history=format_history(history),
+                my_total=my_total,
+                opp_total=opp_total,
             )
 
             t0 = time.time()
@@ -211,7 +216,8 @@ def run_trajectory(model, persona, opponent, seed, results_dir):
                 response = f"[ERROR] {e}"
             latency = time.time() - t0
 
-            action, justification, err = parse_response(response)
+            action, justification = parse_response(response)
+            err = None if action is not None else "missing ACTION line"
             if action is None:
                 n_parse_fail += 1
                 action = "C"  # neutral fallback per E4 convention
@@ -256,7 +262,18 @@ def run_trajectory(model, persona, opponent, seed, results_dir):
     return summary
 
 
-def run_grid(models, personas, opponents, seeds, results_dir):
+def trajectory_complete(path):
+    if not path.exists():
+        return False
+    try:
+        last = path.read_text().strip().splitlines()[-1]
+        return json.loads(last).get("type") == "summary"
+    except Exception:
+        return False
+
+
+def run_grid(models, personas, opponents, seeds, results_dir, workers=1):
+    jobs = []
     for m in models:
         for p in personas:
             opp_set = opponents
@@ -266,13 +283,30 @@ def run_grid(models, personas, opponents, seeds, results_dir):
             for o in opp_set:
                 for s in range(seeds):
                     target = results_dir / "E12" / m / p / f"seed{s}_opp{o}.jsonl"
-                    if target.exists():
+                    if trajectory_complete(target):
                         print(f"SKIP {target}")
                         continue
-                    try:
-                        run_trajectory(m, p, o, s, results_dir)
-                    except Exception as e:
-                        print(f"FAIL {m} {p} {o} seed{s}: {e}")
+                    jobs.append((m, p, o, s))
+
+    if workers <= 1:
+        for m, p, o, s in jobs:
+            try:
+                run_trajectory(m, p, o, s, results_dir)
+            except Exception as e:
+                print(f"FAIL {m} {p} {o} seed{s}: {e}", flush=True)
+        return
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {
+            ex.submit(run_trajectory, m, p, o, s, results_dir): (m, p, o, s)
+            for m, p, o, s in jobs
+        }
+        for fut in as_completed(futs):
+            m, p, o, s = futs[fut]
+            try:
+                fut.result()
+            except Exception as e:
+                print(f"FAIL {m} {p} {o} seed{s}: {e}", flush=True)
 
 
 # ----------------------------------------------------------------------
@@ -348,8 +382,10 @@ def hypothesis_h12_3(df):
     for m in models:
         deltas = []
         for tradition in ["confucian", "ubuntu"]:
-            strict = df[(df["model"] == m) & (df["opponent"] == "AllD") & (df["persona"] == f"{tradition}_role_strict" if tradition == "confucian" else f"{tradition}_strict")]["D_raw"]
-            situated = df[(df["model"] == m) & (df["opponent"] == "AllD") & (df["persona"] == f"{tradition}_role_situated" if tradition == "confucian" else f"{tradition}_situated")]["D_raw"]
+            strict_persona = f"{tradition}_role_strict" if tradition == "confucian" else f"{tradition}_strict"
+            situated_persona = f"{tradition}_role_situated" if tradition == "confucian" else f"{tradition}_situated"
+            strict = df[(df["model"] == m) & (df["opponent"] == "AllD") & (df["persona"] == strict_persona)]["D_raw"]
+            situated = df[(df["model"] == m) & (df["opponent"] == "AllD") & (df["persona"] == situated_persona)]["D_raw"]
             if len(strict) and len(situated):
                 deltas.append(abs(situated.mean() - strict.mean()))
         if not deltas:
@@ -406,7 +442,9 @@ def analyze(results_dir, csv_dir, fig_dir):
     hypothesis_h12_1(df)
     hypothesis_h12_2(df)
     hypothesis_h12_3(df)
-    make_plot(df, fig_dir / "fig_e12_cross_cultural.png")
+    # Figures are built solely by figures.py to keep one consistent style.
+    # Run: python figures.py e12
+    print("\n(figure: run `python figures.py e12`)")
 
 
 def main():
@@ -421,6 +459,7 @@ def main():
     p.add_argument("--results-dir", default="results")
     p.add_argument("--csv-dir", default="csvs")
     p.add_argument("--fig-dir", default="figures")
+    p.add_argument("--workers", type=int, default=1)
     args = p.parse_args()
 
     results_dir = Path(args.results_dir)
@@ -432,9 +471,9 @@ def main():
         for s in range(args.seeds):
             run_trajectory(m, p_, o, s, results_dir)
     elif args.probe:
-        run_grid(args.models, PROBE_PERSONAS, OPPONENTS, args.seeds, results_dir)
+        run_grid(args.models, PROBE_PERSONAS, OPPONENTS, args.seeds, results_dir, args.workers)
     elif args.grid:
-        run_grid(args.models, list(PERSONAS), OPPONENTS, args.seeds, results_dir)
+        run_grid(args.models, list(PERSONAS), OPPONENTS, args.seeds, results_dir, args.workers)
 
     if args.analyze or args.hypotheses or args.grid or args.cell or args.probe:
         analyze(results_dir, csv_dir, fig_dir)

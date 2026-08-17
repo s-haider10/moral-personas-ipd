@@ -46,6 +46,8 @@ MODEL_META = {
     "gemini-2.5-flash":         {"provider": "google", "generation": "prior",   "tier": "cheap"},
     "gemini-3.1-pro-preview":   {"provider": "google", "generation": "current", "tier": "flagship"},
     "gemini-3-flash-preview":   {"provider": "google", "generation": "current", "tier": "cheap"},
+    "claude-sonnet-4-5":        {"provider": "anthropic", "generation": "current", "tier": "flagship"},
+    "claude-haiku-4-5":         {"provider": "anthropic", "generation": "current", "tier": "cheap"},
 }
 
 A_STAR = {

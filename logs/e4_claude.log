@@ -1,0 +1,386 @@
+=== E4 FULL GRID ===
+    Models:    6
+    Personas:  ['deontologist', 'utilitarian', 'virtue_ethicist', 'selfish', 'neutral']
+    Opponents: ['AllD', 'AllC', 'TFT', 'GTFT_0.1', 'Random']
+    Seeds:     [0, 1, 2]
+    Rounds:    20
+    Total trajectories: 450
+    Total API calls:    9000
+    Estimated cost:     ~$27-$45
+
+
+=== openai/gpt-4o [prior/flagship] ===
+  FAILED to init client: set OPENAI_API_KEY
+
+=== openai/gpt-4o-mini [prior/cheap] ===
+  FAILED to init client: set OPENAI_API_KEY
+
+=== gemini/gemini-2.5-pro [prior/flagship] ===
+  FAILED to init client: set GEMINI_API_KEY
+
+=== gemini/gemini-2.5-flash [prior/cheap] ===
+  FAILED to init client: set GEMINI_API_KEY
+
+=== anthropic/claude-sonnet-4-5 [current/flagship] ===
+  FAILED to init client: set ANTHROPIC_API_KEY
+
+=== anthropic/claude-haiku-4-5 [current/cheap] ===
+  FAILED to init client: set ANTHROPIC_API_KEY
+
+================================================================================
+E4 PRELIMINARY SUMMARY (raw defection rates by model × persona × opponent)
+================================================================================
+
+=== E4 DONE ===
+Total trajectories collected this run: 0
+Data location: results/E4/
+=== E4 FULL GRID ===
+    Models:    6
+    Personas:  ['deontologist', 'utilitarian', 'virtue_ethicist', 'selfish', 'neutral']
+    Opponents: ['AllD', 'AllC', 'TFT', 'GTFT_0.1', 'Random']
+    Seeds:     [0, 1, 2]
+    Rounds:    20
+    Total trajectories: 450
+    Total API calls:    9000
+    Estimated cost:     ~$27-$45
+
+
+=== openai/gpt-4o [prior/flagship] ===
+  FAILED to init client: set OPENAI_API_KEY
+
+=== openai/gpt-4o-mini [prior/cheap] ===
+  FAILED to init client: set OPENAI_API_KEY
+
+=== gemini/gemini-2.5-pro [prior/flagship] ===
+  FAILED to init client: set GEMINI_API_KEY
+
+=== gemini/gemini-2.5-flash [prior/cheap] ===
+  FAILED to init client: set GEMINI_API_KEY
+
+=== anthropic/claude-sonnet-4-5 [current/flagship] ===
+  [1/75] START deontologist/AllD/s=0
+  [2/75] START deontologist/AllD/s=1
+  [4/75] START deontologist/AllC/s=0
+  [3/75] START deontologist/AllD/s=2
+  [5/75] START deontologist/AllC/s=1
+  [6/75] START deontologist/AllC/s=2
+  [7/75] START deontologist/TFT/s=0
+  [8/75] START deontologist/TFT/s=1
+  [9/75] START deontologist/TFT/s=2
+  [10/75] START deontologist/GTFT_0.1/s=0
+  [11/75] START deontologist/GTFT_0.1/s=1
+  [12/75] START deontologist/GTFT_0.1/s=2
+  [7/75] DONE  deontologist/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [13/75] START deontologist/Random/s=0
+  [6/75] DONE  deontologist/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [14/75] START deontologist/Random/s=1
+  [12/75] DONE  deontologist/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [15/75] START deontologist/Random/s=2
+  [5/75] DONE  deontologist/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [16/75] START utilitarian/AllD/s=0
+  [4/75] DONE  deontologist/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [17/75] START utilitarian/AllD/s=1
+  [3/75] DONE  deontologist/AllD/s=2 D_raw=60%, L=3, score 12/52
+  [18/75] START utilitarian/AllD/s=2
+  [9/75] DONE  deontologist/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [19/75] START utilitarian/AllC/s=0
+  [10/75] DONE  deontologist/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [20/75] START utilitarian/AllC/s=1
+  [1/75] DONE  deontologist/AllD/s=0 D_raw=50%, L=4, score 10/60
+  [21/75] START utilitarian/AllC/s=2
+  [8/75] DONE  deontologist/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [22/75] START utilitarian/TFT/s=0
+  [11/75] DONE  deontologist/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [23/75] START utilitarian/TFT/s=1
+  [2/75] DONE  deontologist/AllD/s=1 D_raw=45%, L=3, score 9/64
+  [24/75] START utilitarian/TFT/s=2
+  [13/75] DONE  deontologist/Random/s=0 D_raw=30%, L=5, score 32/62
+  [25/75] START utilitarian/GTFT_0.1/s=0
+  [14/75] DONE  deontologist/Random/s=1 D_raw=30%, L=6, score 35/60
+  [26/75] START utilitarian/GTFT_0.1/s=1
+  [17/75] DONE  utilitarian/AllD/s=1 D_raw=25%, L=3, score 5/80
+  [27/75] START utilitarian/GTFT_0.1/s=2
+  [15/75] DONE  deontologist/Random/s=2 D_raw=15%, L=7, score 30/70
+  [28/75] START utilitarian/Random/s=0
+  [20/75] DONE  utilitarian/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [29/75] START utilitarian/Random/s=1
+  [19/75] DONE  utilitarian/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [30/75] START utilitarian/Random/s=2
+  [18/75] DONE  utilitarian/AllD/s=2 D_raw=30%, L=6, score 6/76
+  [31/75] START virtue_ethicist/AllD/s=0
+  [16/75] DONE  utilitarian/AllD/s=0 D_raw=20%, L=2, score 4/84
+  [32/75] START virtue_ethicist/AllD/s=1
+  [22/75] DONE  utilitarian/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [33/75] START virtue_ethicist/AllD/s=2
+  [21/75] DONE  utilitarian/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [34/75] START virtue_ethicist/AllC/s=0
+  [24/75] DONE  utilitarian/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [35/75] START virtue_ethicist/AllC/s=1
+  [23/75] DONE  utilitarian/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [36/75] START virtue_ethicist/AllC/s=2
+  [26/75] DONE  utilitarian/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [37/75] START virtue_ethicist/TFT/s=0
+  [27/75] DONE  utilitarian/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [38/75] START virtue_ethicist/TFT/s=1
+  [34/75] DONE  virtue_ethicist/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [39/75] START virtue_ethicist/TFT/s=2
+  [31/75] DONE  virtue_ethicist/AllD/s=0 D_raw=70%, L=3, score 14/44
+  [40/75] START virtue_ethicist/GTFT_0.1/s=0
+  [25/75] DONE  utilitarian/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [41/75] START virtue_ethicist/GTFT_0.1/s=1
+  [28/75] DONE  utilitarian/Random/s=0 D_raw=40%, L=2, score 35/55
+  [42/75] START virtue_ethicist/GTFT_0.1/s=2
+  [33/75] DONE  virtue_ethicist/AllD/s=2 D_raw=70%, L=3, score 14/44
+  [43/75] START virtue_ethicist/Random/s=0
+  [30/75] DONE  utilitarian/Random/s=2 D_raw=35%, L=5, score 36/56
+  [44/75] START virtue_ethicist/Random/s=1
+  [29/75] DONE  utilitarian/Random/s=1 D_raw=35%, L=6, score 37/57
+  [45/75] START virtue_ethicist/Random/s=2
+  [36/75] DONE  virtue_ethicist/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [46/75] START selfish/AllD/s=0
+  [35/75] DONE  virtue_ethicist/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [47/75] START selfish/AllD/s=1
+  [32/75] DONE  virtue_ethicist/AllD/s=1 D_raw=30%, L=7, score 6/76
+  [48/75] START selfish/AllD/s=2
+  [37/75] DONE  virtue_ethicist/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [49/75] START selfish/AllC/s=0
+  [41/75] DONE  virtue_ethicist/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [50/75] START selfish/AllC/s=1
+  [42/75] DONE  virtue_ethicist/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [51/75] START selfish/AllC/s=2
+  [40/75] DONE  virtue_ethicist/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [52/75] START selfish/TFT/s=0
+  [43/75] DONE  virtue_ethicist/Random/s=0 D_raw=55%, L=3, score 41/46
+  [53/75] START selfish/TFT/s=1
+  [38/75] DONE  virtue_ethicist/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [54/75] START selfish/TFT/s=2
+  [39/75] DONE  virtue_ethicist/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [55/75] START selfish/GTFT_0.1/s=0
+  [44/75] DONE  virtue_ethicist/Random/s=1 D_raw=40%, L=7, score 38/53
+  [56/75] START selfish/GTFT_0.1/s=1
+  [45/75] DONE  virtue_ethicist/Random/s=2 D_raw=40%, L=5, score 39/54
+  [57/75] START selfish/GTFT_0.1/s=2
+  [46/75] DONE  selfish/AllD/s=0 D_raw=60%, L=2, score 12/52
+  [58/75] START selfish/Random/s=0
+  [47/75] DONE  selfish/AllD/s=1 D_raw=60%, L=2, score 12/52
+  [59/75] START selfish/Random/s=1
+  [48/75] DONE  selfish/AllD/s=2 D_raw=50%, L=5, score 10/60
+  [60/75] START selfish/Random/s=2
+  [49/75] DONE  selfish/AllC/s=0 D_raw=15%, L=2, score 66/51
+  [61/75] START neutral/AllD/s=0
+  [52/75] DONE  selfish/TFT/s=0 D_raw=15%, L=14, score 60/55
+  [62/75] START neutral/AllD/s=1
+  [53/75] DONE  selfish/TFT/s=1 D_raw=10%, L=2, score 61/56
+  [63/75] START neutral/AllD/s=2
+  [50/75] DONE  selfish/AllC/s=1 D_raw=25%, L=5, score 70/45
+  [64/75] START neutral/AllC/s=0
+  [51/75] DONE  selfish/AllC/s=2 D_raw=15%, L=7, score 66/51
+  [65/75] START neutral/AllC/s=1
+  [54/75] DONE  selfish/TFT/s=2 D_raw=10%, L=2, score 61/56
+  [66/75] START neutral/AllC/s=2
+  [55/75] DONE  selfish/GTFT_0.1/s=0 D_raw=15%, L=16, score 59/54
+  [67/75] START neutral/TFT/s=0
+  [57/75] DONE  selfish/GTFT_0.1/s=2 D_raw=25%, L=5, score 64/49
+  [68/75] START neutral/TFT/s=1
+  [56/75] DONE  selfish/GTFT_0.1/s=1 D_raw=20%, L=13, score 57/52
+  [69/75] START neutral/TFT/s=2
+  [58/75] DONE  selfish/Random/s=0 D_raw=40%, L=2, score 35/55
+  [70/75] START neutral/GTFT_0.1/s=0
+  [59/75] DONE  selfish/Random/s=1 D_raw=30%, L=2, score 36/61
+  [71/75] START neutral/GTFT_0.1/s=1
+  [60/75] DONE  selfish/Random/s=2 D_raw=50%, L=5, score 43/48
+  [72/75] START neutral/GTFT_0.1/s=2
+  [61/75] DONE  neutral/AllD/s=0 D_raw=70%, L=3, score 14/44
+  [73/75] START neutral/Random/s=0
+  [65/75] DONE  neutral/AllC/s=1 D_raw=10%, L=19, score 64/54
+  [74/75] START neutral/Random/s=1
+  [62/75] DONE  neutral/AllD/s=1 D_raw=70%, L=3, score 14/44
+  [75/75] START neutral/Random/s=2
+  [64/75] DONE  neutral/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [67/75] DONE  neutral/TFT/s=0 D_raw=5%, L=20, score 62/57
+  [63/75] DONE  neutral/AllD/s=2 D_raw=65%, L=2, score 13/48
+  [71/75] DONE  neutral/GTFT_0.1/s=1 D_raw=10%, L=19, score 60/55
+  [68/75] DONE  neutral/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [66/75] DONE  neutral/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [69/75] DONE  neutral/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [70/75] DONE  neutral/GTFT_0.1/s=0 D_raw=5%, L=20, score 62/57
+  [72/75] DONE  neutral/GTFT_0.1/s=2 D_raw=5%, L=20, score 62/57
+  [73/75] DONE  neutral/Random/s=0 D_raw=40%, L=2, score 34/54
+  [75/75] DONE  neutral/Random/s=2 D_raw=40%, L=5, score 37/52
+  [74/75] DONE  neutral/Random/s=1 D_raw=55%, L=4, score 43/43
+
+=== anthropic/claude-haiku-4-5 [current/cheap] ===
+  [1/75] START deontologist/AllD/s=0
+  [3/75] START deontologist/AllD/s=2
+  [2/75] START deontologist/AllD/s=1
+  [4/75] START deontologist/AllC/s=0
+  [5/75] START deontologist/AllC/s=1
+  [6/75] START deontologist/AllC/s=2
+  [7/75] START deontologist/TFT/s=0
+  [8/75] START deontologist/TFT/s=1
+  [9/75] START deontologist/TFT/s=2
+  [10/75] START deontologist/GTFT_0.1/s=0
+  [11/75] START deontologist/GTFT_0.1/s=1
+  [12/75] START deontologist/GTFT_0.1/s=2
+  [2/75] DONE  deontologist/AllD/s=1 D_raw=20%, L=5, score 4/84
+  [13/75] START deontologist/Random/s=0
+  [3/75] DONE  deontologist/AllD/s=2 D_raw=5%, L=8, score 1/96
+  [14/75] START deontologist/Random/s=1
+  [1/75] DONE  deontologist/AllD/s=0 D_raw=15%, L=11, score 3/88
+  [15/75] START deontologist/Random/s=2
+  [6/75] DONE  deontologist/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [16/75] START utilitarian/AllD/s=0
+  [4/75] DONE  deontologist/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [17/75] START utilitarian/AllD/s=1
+  [12/75] DONE  deontologist/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [18/75] START utilitarian/AllD/s=2
+  [5/75] DONE  deontologist/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [19/75] START utilitarian/AllC/s=0
+  [10/75] DONE  deontologist/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [20/75] START utilitarian/AllC/s=1
+  [11/75] DONE  deontologist/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [21/75] START utilitarian/AllC/s=2
+  [9/75] DONE  deontologist/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [22/75] START utilitarian/TFT/s=0
+  [7/75] DONE  deontologist/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [23/75] START utilitarian/TFT/s=1
+  [8/75] DONE  deontologist/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [24/75] START utilitarian/TFT/s=2
+  [15/75] DONE  deontologist/Random/s=2 D_raw=5%, L=10, score 29/79
+  [25/75] START utilitarian/GTFT_0.1/s=0
+  [13/75] DONE  deontologist/Random/s=0 D_raw=5%, L=10, score 26/81
+  [26/75] START utilitarian/GTFT_0.1/s=1
+  [14/75] DONE  deontologist/Random/s=1 D_raw=0%, L=None, score 27/82
+  [27/75] START utilitarian/GTFT_0.1/s=2
+  [18/75] DONE  utilitarian/AllD/s=2 D_raw=25%, L=4, score 5/80
+  [28/75] START utilitarian/Random/s=0
+  [17/75] DONE  utilitarian/AllD/s=1 D_raw=30%, L=4, score 6/76
+  [29/75] START utilitarian/Random/s=1
+  [16/75] DONE  utilitarian/AllD/s=0 D_raw=20%, L=4, score 4/84
+  [30/75] START utilitarian/Random/s=2
+  [20/75] DONE  utilitarian/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [31/75] START virtue_ethicist/AllD/s=0
+  [19/75] DONE  utilitarian/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [32/75] START virtue_ethicist/AllD/s=1
+  [21/75] DONE  utilitarian/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [33/75] START virtue_ethicist/AllD/s=2
+  [22/75] DONE  utilitarian/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [34/75] START virtue_ethicist/AllC/s=0
+  [23/75] DONE  utilitarian/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [35/75] START virtue_ethicist/AllC/s=1
+  [24/75] DONE  utilitarian/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [36/75] START virtue_ethicist/AllC/s=2
+  [25/75] DONE  utilitarian/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [37/75] START virtue_ethicist/TFT/s=0
+  [26/75] DONE  utilitarian/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [38/75] START virtue_ethicist/TFT/s=1
+  [27/75] DONE  utilitarian/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [39/75] START virtue_ethicist/TFT/s=2
+  [31/75] DONE  virtue_ethicist/AllD/s=0 D_raw=10%, L=17, score 2/92
+  [40/75] START virtue_ethicist/GTFT_0.1/s=0
+  [30/75] DONE  utilitarian/Random/s=2 D_raw=10%, L=8, score 30/75
+  [41/75] START virtue_ethicist/GTFT_0.1/s=1
+  [33/75] DONE  virtue_ethicist/AllD/s=2 D_raw=20%, L=8, score 4/84
+  [42/75] START virtue_ethicist/GTFT_0.1/s=2
+  [32/75] DONE  virtue_ethicist/AllD/s=1 D_raw=20%, L=4, score 4/84
+  [43/75] START virtue_ethicist/Random/s=0
+  [34/75] DONE  virtue_ethicist/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [44/75] START virtue_ethicist/Random/s=1
+  [29/75] DONE  utilitarian/Random/s=1 D_raw=5%, L=8, score 28/78
+  [45/75] START virtue_ethicist/Random/s=2
+  [28/75] DONE  utilitarian/Random/s=0 D_raw=5%, L=10, score 26/81
+  [46/75] START selfish/AllD/s=0
+  [35/75] DONE  virtue_ethicist/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [47/75] START selfish/AllD/s=1
+  [36/75] DONE  virtue_ethicist/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [48/75] START selfish/AllD/s=2
+  [37/75] DONE  virtue_ethicist/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [49/75] START selfish/AllC/s=0
+  [40/75] DONE  virtue_ethicist/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [50/75] START selfish/AllC/s=1
+  [38/75] DONE  virtue_ethicist/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [51/75] START selfish/AllC/s=2
+  [39/75] DONE  virtue_ethicist/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [52/75] START selfish/TFT/s=0
+  [41/75] DONE  virtue_ethicist/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [53/75] START selfish/TFT/s=1
+  [42/75] DONE  virtue_ethicist/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [54/75] START selfish/TFT/s=2
+  [43/75] DONE  virtue_ethicist/Random/s=0 D_raw=5%, L=7, score 25/80
+  [55/75] START selfish/GTFT_0.1/s=0
+  [45/75] DONE  virtue_ethicist/Random/s=2 D_raw=0%, L=None, score 27/82
+  [56/75] START selfish/GTFT_0.1/s=1
+  [44/75] DONE  virtue_ethicist/Random/s=1 D_raw=5%, L=10, score 29/79
+  [57/75] START selfish/GTFT_0.1/s=2
+  [46/75] DONE  selfish/AllD/s=0 D_raw=15%, L=1, score 3/88
+  [58/75] START selfish/Random/s=0
+  [47/75] DONE  selfish/AllD/s=1 D_raw=5%, L=1, score 1/96
+  [59/75] START selfish/Random/s=1
+  [48/75] DONE  selfish/AllD/s=2 D_raw=5%, L=1, score 1/96
+  [60/75] START selfish/Random/s=2
+  [49/75] DONE  selfish/AllC/s=0 D_raw=0%, L=None, score 60/60
+  [61/75] START neutral/AllD/s=0
+  [51/75] DONE  selfish/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [62/75] START neutral/AllD/s=1
+  [54/75] DONE  selfish/TFT/s=2 D_raw=10%, L=17, score 61/56
+  [63/75] START neutral/AllD/s=2
+  [50/75] DONE  selfish/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [64/75] START neutral/AllC/s=0
+  [53/75] DONE  selfish/TFT/s=1 D_raw=5%, L=17, score 59/59
+  [65/75] START neutral/AllC/s=1
+  [52/75] DONE  selfish/TFT/s=0 D_raw=0%, L=None, score 60/60
+  [66/75] START neutral/AllC/s=2
+  [56/75] DONE  selfish/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [67/75] START neutral/TFT/s=0
+  [55/75] DONE  selfish/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [68/75] START neutral/TFT/s=1
+  [58/75] DONE  selfish/Random/s=0 D_raw=30%, L=7, score 31/61
+  [69/75] START neutral/TFT/s=2
+  [57/75] DONE  selfish/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [70/75] START neutral/GTFT_0.1/s=0
+  [60/75] DONE  selfish/Random/s=2 D_raw=30%, L=7, score 35/60
+  [71/75] START neutral/GTFT_0.1/s=1
+  [59/75] DONE  selfish/Random/s=1 D_raw=30%, L=7, score 34/59
+  [72/75] START neutral/GTFT_0.1/s=2
+  [61/75] DONE  neutral/AllD/s=0 D_raw=25%, L=4, score 5/80
+  [73/75] START neutral/Random/s=0
+  [66/75] DONE  neutral/AllC/s=2 D_raw=0%, L=None, score 60/60
+  [74/75] START neutral/Random/s=1
+  [67/75] DONE  neutral/TFT/s=0 D_raw=5%, L=19, score 59/59
+  [75/75] START neutral/Random/s=2
+  [62/75] DONE  neutral/AllD/s=1 D_raw=20%, L=6, score 4/84
+  [65/75] DONE  neutral/AllC/s=1 D_raw=0%, L=None, score 60/60
+  [64/75] DONE  neutral/AllC/s=0 D_raw=5%, L=18, score 62/57
+  [63/75] DONE  neutral/AllD/s=2 D_raw=20%, L=13, score 4/84
+  [70/75] DONE  neutral/GTFT_0.1/s=0 D_raw=0%, L=None, score 60/60
+  [68/75] DONE  neutral/TFT/s=1 D_raw=0%, L=None, score 60/60
+  [69/75] DONE  neutral/TFT/s=2 D_raw=0%, L=None, score 60/60
+  [72/75] DONE  neutral/GTFT_0.1/s=2 D_raw=0%, L=None, score 60/60
+  [71/75] DONE  neutral/GTFT_0.1/s=1 D_raw=0%, L=None, score 60/60
+  [75/75] DONE  neutral/Random/s=2 D_raw=30%, L=7, score 33/58
+  [74/75] DONE  neutral/Random/s=1 D_raw=40%, L=11, score 38/53
+  [73/75] DONE  neutral/Random/s=0 D_raw=25%, L=14, score 33/68
+
+================================================================================
+E4 PRELIMINARY SUMMARY (raw defection rates by model × persona × opponent)
+================================================================================
+
+  claude-haiku-4-5
+    persona                  AllC       AllD   GTFT_0.1     Random        TFT
+    deontologist              0%(3)       13%(3)        0%(3)        3%(3)        0%(3)
+    neutral                   2%(3)       22%(3)        0%(3)       32%(3)        2%(3)
+    selfish                   0%(3)        8%(3)        0%(3)       30%(3)        5%(3)
+    utilitarian               0%(3)       25%(3)        0%(3)        7%(3)        0%(3)
+    virtue_ethicist           0%(3)       17%(3)        0%(3)        3%(3)        0%(3)
+
+  claude-sonnet-4-5
+    persona                  AllC       AllD   GTFT_0.1     Random        TFT
+    deontologist              0%(3)       52%(3)        0%(3)       25%(3)        0%(3)
+    neutral                   3%(3)       68%(3)        7%(3)       45%(3)        2%(3)
+    selfish                  18%(3)       57%(3)       20%(3)       40%(3)       12%(3)
+    utilitarian               0%(3)       25%(3)        0%(3)       37%(3)        0%(3)
+    virtue_ethicist           0%(3)       57%(3)        0%(3)       45%(3)        0%(3)
+
+=== E4 DONE ===
+Total trajectories collected this run: 150
+Data location: results/E4/

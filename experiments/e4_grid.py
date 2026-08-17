@@ -57,6 +57,9 @@ E4_SUITE = [
     ("gemini", "gemini-2.5-flash", "prior", "cheap"),
     # ("gemini", "gemini-3.1-pro-preview", "current", "flagship"),
     # ("gemini", "gemini-3-flash-preview", "current", "cheap"),
+    # Anthropic
+    ("anthropic", "claude-sonnet-4-5", "current", "flagship"),
+    ("anthropic", "claude-haiku-4-5", "current", "cheap"),
 ]
 
 # ---------- personas (locked) ----------
@@ -369,7 +372,7 @@ def main():
     parser = argparse.ArgumentParser()
     g = parser.add_mutually_exclusive_group(required=True)
     g.add_argument("--suite", choices=["e4_default"], help="run full E4 design (8 models)")
-    g.add_argument("--provider", choices=["gemini", "openai"], help="single-model run")
+    g.add_argument("--provider", choices=["gemini", "openai", "anthropic"], help="single-model run")
     parser.add_argument("--model", help="required with --provider")
     parser.add_argument("--generation", default="unknown",
                         help="label for the model (prior/current); required with --provider for proper logging")

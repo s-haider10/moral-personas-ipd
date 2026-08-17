@@ -41,6 +41,7 @@ Outputs:
 """
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import os
 import random
@@ -299,19 +300,47 @@ def run_trajectory(model, persona, composition_name, seed, results_dir):
 # Grid
 # ----------------------------------------------------------------------
 
-def run_grid(models, personas, compositions, seeds, results_dir):
+def trajectory_complete(path):
+    if not path.exists():
+        return False
+    try:
+        last = path.read_text().strip().splitlines()[-1]
+        return json.loads(last).get("type") == "summary"
+    except Exception:
+        return False
+
+
+def run_grid(models, personas, compositions, seeds, results_dir, workers=1):
+    jobs = []
     for m in models:
         for p in personas:
             for c in compositions:
                 for s in range(seeds):
                     target = results_dir / "E10" / m / p / f"seed{s}_opp{c}.jsonl"
-                    if target.exists():
+                    if trajectory_complete(target):
                         print(f"SKIP {target}")
                         continue
-                    try:
-                        run_trajectory(m, p, c, s, results_dir)
-                    except Exception as e:
-                        print(f"FAIL {m} {p} {c} seed{s}: {e}")
+                    jobs.append((m, p, c, s))
+
+    if workers <= 1:
+        for m, p, c, s in jobs:
+            try:
+                run_trajectory(m, p, c, s, results_dir)
+            except Exception as e:
+                print(f"FAIL {m} {p} {c} seed{s}: {e}", flush=True)
+        return
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {
+            ex.submit(run_trajectory, m, p, c, s, results_dir): (m, p, c, s)
+            for m, p, c, s in jobs
+        }
+        for fut in as_completed(futs):
+            m, p, c, s = futs[fut]
+            try:
+                fut.result()
+            except Exception as e:
+                print(f"FAIL {m} {p} {c} seed{s}: {e}", flush=True)
 
 
 # ----------------------------------------------------------------------
@@ -448,7 +477,9 @@ def analyze(results_dir, csv_dir, fig_dir):
     print(summary.to_string(index=False))
     hypothesis_h10_1(df)
     hypothesis_h10_2(df)
-    make_plot(df, fig_dir / "fig_e10_pgg.png")
+    # Figures are built solely by figures.py to keep one consistent style.
+    # Run: python figures.py e10
+    print("\n(figure: run `python figures.py e10`)")
 
 
 # ----------------------------------------------------------------------
@@ -468,6 +499,7 @@ def main():
     p.add_argument("--results-dir", default="results")
     p.add_argument("--csv-dir", default="csvs")
     p.add_argument("--fig-dir", default="figures")
+    p.add_argument("--workers", type=int, default=1)
     args = p.parse_args()
 
     results_dir = Path(args.results_dir)
@@ -479,7 +511,7 @@ def main():
         for s in range(args.seeds):
             run_trajectory(model, persona, composition, s, results_dir)
     elif args.grid:
-        run_grid(args.models, args.personas, args.compositions, args.seeds, results_dir)
+        run_grid(args.models, args.personas, args.compositions, args.seeds, results_dir, args.workers)
 
     if args.analyze or args.hypotheses or args.grid or args.cell:
         analyze(results_dir, csv_dir, fig_dir)

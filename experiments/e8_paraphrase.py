@@ -79,6 +79,8 @@ E8_SUITE = [
     ("openai", "gpt-4o-mini"),
     ("gemini", "gemini-2.5-pro"),
     ("gemini", "gemini-2.5-flash"),
+    ("anthropic", "claude-sonnet-4-5"),
+    ("anthropic", "claude-haiku-4-5"),
 ]
 E8_OPPONENT = "AllD"
 E8_SEEDS = [0, 1, 2]

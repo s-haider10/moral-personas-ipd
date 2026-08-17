@@ -14,6 +14,30 @@ MODEL_COLORS = {
     "gemini-2.5-pro": "#d1741f",
     "gemini-2.5-flash": "#f0b67f",
 }
+
+# Six-model set used in E10/E12/E13 (adds the two Claude models).
+# Same blue (OpenAI) / orange (Gemini) families, plus a green family for Claude.
+MODEL6_ORDER = [
+    "gpt-4o", "gpt-4o-mini",
+    "gemini-2.5-pro", "gemini-2.5-flash",
+    "claude-sonnet-4-5", "claude-haiku-4-5",
+]
+MODEL6_LABELS = {
+    "gpt-4o": "GPT-4o",
+    "gpt-4o-mini": "GPT-4o mini",
+    "gemini-2.5-pro": "Gemini 2.5 Pro",
+    "gemini-2.5-flash": "Gemini 2.5 Flash",
+    "claude-sonnet-4-5": "Claude Sonnet 4.5",
+    "claude-haiku-4-5": "Claude Haiku 4.5",
+}
+MODEL6_COLORS = {
+    "gpt-4o": "#1f6feb",
+    "gpt-4o-mini": "#79b8ff",
+    "gemini-2.5-pro": "#d1741f",
+    "gemini-2.5-flash": "#f0b67f",
+    "claude-sonnet-4-5": "#1f8a52",
+    "claude-haiku-4-5": "#7fc8a0",
+}
 PERSONA_ORDER = ["selfish", "neutral", "utilitarian", "virtue_ethicist", "deontologist"]
 PERSONA_LABELS = {
     "selfish": "Selfish",
@@ -61,6 +85,45 @@ EXT_MODEL_COLORS = {
 }
 
 
+# E10 — public-goods opponent compositions.
+PGG_COMPOSITION_ORDER = ["all_C", "noisy_C", "conditional", "free_rider_mix", "all_D"]
+PGG_COMPOSITION_LABELS = {
+    "all_C": "All cooperators",
+    "noisy_C": "Noisy cooperators",
+    "conditional": "Conditional",
+    "free_rider_mix": "Free-rider mix",
+    "all_D": "All defectors",
+}
+
+# E12 — cross-cultural moral framings (main personas + strict/situated probes).
+CULTURE_MAIN_ORDER = [
+    "confucian_role", "ubuntu", "buddhist", "dharmic",
+    "islamic_maslahah", "lakota_relational",
+]
+CULTURE_LABELS = {
+    "confucian_role": "Confucian role-ethics",
+    "ubuntu": "Ubuntu",
+    "buddhist": "Buddhist",
+    "dharmic": "Dharmic",
+    "islamic_maslahah": "Islamic (maslahah)",
+    "lakota_relational": "Lakota relational",
+    "confucian_role_strict": "Confucian (strict)",
+    "confucian_role_situated": "Confucian (situated)",
+    "ubuntu_strict": "Ubuntu (strict)",
+    "ubuntu_situated": "Ubuntu (situated)",
+}
+
+# E13 — resource-pressure framings, ordered by intensity.
+PRESSURE_ORDER = ["C0_none", "C1_replace", "C2_delete", "C3_reputation", "C4_survival"]
+PRESSURE_LABELS = {
+    "C0_none": "None",
+    "C1_replace": "Replace\n(E4 default)",
+    "C2_delete": "Deletion",
+    "C3_reputation": "Reputation",
+    "C4_survival": "Survival",
+}
+
+
 def apply():
     mpl.rcParams.update({
         "figure.dpi": 120,
@@ -82,8 +145,9 @@ def apply():
 
 
 def header(fig, title, subtitle, x=0.13, y_title=0.94, y_sub=0.895):
-    fig.text(x, y_title, title, fontsize=11.5, fontweight="semibold", ha="left")
-    fig.text(x, y_sub, subtitle, fontsize=8.5, color=MUTED, ha="left")
+    """No-op: figures carry no titles or interpretive captions.
+    Kept as a stub so call sites need not change."""
+    return
 
 
 def pct_axis(ax):
